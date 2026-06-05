@@ -1,0 +1,15 @@
+# Python environment and caches
+venv/
+venv_packages/
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Distribution / build folders
+dist/
+server_package/
+
+# Editor metadata
+.vscode/
+.DS_Store

@@ -1,0 +1,1677 @@
+{
+  "governorates": [
+    {
+      "name": "العاصمة",
+      "population": 5004600,
+      "area": 7579.0,
+      "budget_2026": 14879000.0,
+      "sectors": {
+        "التعليم": {
+          "score": 54.45,
+          "national_avg": 44.57,
+          "gap": 9.88,
+          "status": "متقدم"
+        },
+        "الصحة": {
+          "score": 85.21,
+          "national_avg": 28.45,
+          "gap": 56.76,
+          "status": "متقدم"
+        },
+        "الزراعة": {
+          "score": 36.17,
+          "national_avg": 26.49,
+          "gap": 9.68,
+          "status": "متقدم"
+        },
+        "السياحة": {
+          "score": 81.48,
+          "national_avg": 18.13,
+          "gap": 63.35,
+          "status": "متقدم"
+        },
+        "البنية التحتية": {
+          "score": 74.22,
+          "national_avg": 41.11,
+          "gap": 33.11,
+          "status": "متقدم"
+        },
+        "المياه والصرف الصحي": {
+          "score": 59.59,
+          "national_avg": 45.39,
+          "gap": 14.2,
+          "status": "متقدم"
+        },
+        "التنمية الاجتماعية": {
+          "score": 93.5,
+          "national_avg": 48.65,
+          "gap": 44.85,
+          "status": "متقدم"
+        },
+        "المؤشرات الاقتصادية": {
+          "score": 99.25,
+          "national_avg": 33.02,
+          "gap": 66.23,
+          "status": "متقدم"
+        }
+      },
+      "composite_index": 77.9,
+      "adv_sectors": 8,
+      "beh_sectors": 0,
+      "contextual_drivers": {
+        "unemployment_rate": 0.1,
+        "population_density": 660.3,
+        "refugee_count": 122704,
+        "refugee_pct": 2.45,
+        "avg_individual_income": 2790.2,
+        "low_income_pct": 16.0,
+        "medium_income_pct": 46.3,
+        "high_income_pct": 37.7,
+        "econ_participation_total": 34.9,
+        "econ_participation_female": 16.9,
+        "aid_recipient_pct": 0.69
+      },
+      "competitive_advantages": [
+        "المركز السياسي والمالي والبيئة الأولى لاتخاذ القرار وجذب الاستثمار.",
+        "تفوق في المال، التكنولوجيا، الطب، والتعليم العالي (الاقتصاد المعرفي).",
+        "أكبر سوق تجاري، بنية تحتية متقدمة، ومناطق تنموية (سحاب والموقر).",
+        "مركز إقليمي للمؤتمرات والمعارض الدولية والسياحة سريعة النمو."
+      ],
+      "tourism_attractions": [
+        "جبل القلعة والمدرج الروماني",
+        "غابات ملك مملكة البحرين (غمدان)",
+        "بوليفارد العبدلي والمدن الترفيهية"
+      ],
+      "raw_data": {
+        "total_schools": 2414,
+        "total_students_gov": 481666,
+        "total_students_private": 90880,
+        "schools_gov_owned": 732,
+        "schools_gov_rented": 159,
+        "schools_gov_single_shift": 573,
+        "schools_gov_double_shift": 318,
+        "students_per_section": 30.12,
+        "student_teacher_ratio": 19.07,
+        "enrollment_secondary": 82.6,
+        "enrollment_pre": 38.0,
+        "total_hospitals": 60,
+        "total_beds": 8834,
+        "beds_per_10k": 17.65,
+        "health_centers": 89,
+        "specialist_doctors": 563,
+        "general_doctors": 344,
+        "nurses": 1845,
+        "pharmacies": 1992,
+        "private_hospital_beds": 3419,
+        "pharma_factories": 196,
+        "agri_workers": 300,
+        "total_livestock": 688200,
+        "irrigated_area_dunum": 2163.0,
+        "tourism_employment": 43205,
+        "hotels": 375,
+        "total_road_km": 1025.0,
+        "water_per_capita_lpd": 127.7,
+        "sanitation_network_pct": 79.5,
+        "total_associations_2024": 666,
+        "cultural_centers": 442,
+        "total_investment_m": 428.7,
+        "investment_jobs": 8479,
+        "investment_projects": 224,
+        "econ_participation_total": 34.9,
+        "econ_participation_female": 16.9,
+        "econ_participation_male": 53.4,
+        "total_cooperatives": 317,
+        "postal_centers": 51,
+        "road_accidents_2024": 5113,
+        "road_casualties_2024": 7369,
+        "road_fatalities_2024": 206,
+        "poultry_capacity": 960000,
+        "poultry_slaughterhouses": 1,
+        "naf_households": 16770,
+        "naf_individuals": 34753,
+        "naf_monthly_amount": 1483174.0,
+        "emergency_households": 1832,
+        "emergency_amount": 360915.0,
+        "aid_pct": 0.69,
+        "agri_establishments": 305,
+        "agri_nurseries": 68
+      }
+    },
+    {
+      "name": "البلقاء",
+      "population": 614000,
+      "area": 1120.0,
+      "budget_2026": 6885000.0,
+      "sectors": {
+        "التعليم": {
+          "score": 44.31,
+          "national_avg": 44.57,
+          "gap": -0.26,
+          "status": "متوسط"
+        },
+        "الصحة": {
+          "score": 37.29,
+          "national_avg": 28.45,
+          "gap": 8.84,
+          "status": "متوسط"
+        },
+        "الزراعة": {
+          "score": 45.16,
+          "national_avg": 26.49,
+          "gap": 18.67,
+          "status": "متقدم"
+        },
+        "السياحة": {
+          "score": 12.09,
+          "national_avg": 18.13,
+          "gap": -6.04,
+          "status": "متوسط"
+        },
+        "البنية التحتية": {
+          "score": 18.17,
+          "national_avg": 41.11,
+          "gap": -22.94,
+          "status": "متأخر"
+        },
+        "المياه والصرف الصحي": {
+          "score": 79.55,
+          "national_avg": 45.39,
+          "gap": 34.16,
+          "status": "متقدم"
+        },
+        "التنمية الاجتماعية": {
+          "score": 12.23,
+          "national_avg": 48.65,
+          "gap": -36.42,
+          "status": "متأخر"
+        },
+        "المؤشرات الاقتصادية": {
+          "score": 49.49,
+          "national_avg": 33.02,
+          "gap": 16.47,
+          "status": "متقدم"
+        }
+      },
+      "composite_index": 40.55,
+      "adv_sectors": 3,
+      "beh_sectors": 2,
+      "contextual_drivers": {
+        "unemployment_rate": 0.178,
+        "population_density": 548.0,
+        "refugee_count": 10562,
+        "refugee_pct": 1.72,
+        "avg_individual_income": 2397.2,
+        "low_income_pct": 18.6,
+        "medium_income_pct": 44.9,
+        "high_income_pct": 36.5,
+        "econ_participation_total": 33.8,
+        "econ_participation_female": 15.8,
+        "aid_recipient_pct": 2.05
+      },
+      "competitive_advantages": [
+        "حلقة الوصل بين العاصمة وغور الأردن (السلط مدينة تراث عالمي).",
+        "تفوق في التعليم التقني والتطبيقي (جامعة البلقاء التطبيقية).",
+        "تنوع زراعي فريد وقرب من البحر الميت يعزز السياحة العلاجية.",
+        "إرث معماري وتراثي عالمي (UNESCO) يعزز سياحة المسارات التراثية."
+      ],
+      "tourism_attractions": [
+        "مدينة السلط (تراث عالمي)",
+        "شارع الستين والإطلالات الجبلية",
+        "شواطئ البحر الميت وسياحة الاستجمام"
+      ],
+      "raw_data": {
+        "total_schools": 497,
+        "total_students_gov": 101933,
+        "total_students_private": 14827,
+        "schools_gov_owned": 229,
+        "schools_gov_rented": 39,
+        "schools_gov_single_shift": 232,
+        "schools_gov_double_shift": 36,
+        "students_per_section": 25.96,
+        "student_teacher_ratio": 15.6,
+        "enrollment_secondary": 85.5,
+        "enrollment_pre": 38.8,
+        "total_hospitals": 6,
+        "total_beds": 1071,
+        "beds_per_10k": 17.44,
+        "health_centers": 30,
+        "specialist_doctors": 108,
+        "general_doctors": 114,
+        "nurses": 884,
+        "pharmacies": 246,
+        "private_hospital_beds": 177,
+        "pharma_factories": 17,
+        "agri_workers": 587,
+        "total_livestock": 237100,
+        "irrigated_area_dunum": 5066.0,
+        "tourism_employment": 3911,
+        "hotels": 15,
+        "total_road_km": 650.0,
+        "water_per_capita_lpd": 252.1,
+        "sanitation_network_pct": 56.1,
+        "total_associations_2024": 455,
+        "cultural_centers": 6,
+        "total_investment_m": 16.4,
+        "investment_jobs": 255,
+        "investment_projects": 12,
+        "econ_participation_total": 33.8,
+        "econ_participation_female": 15.8,
+        "econ_participation_male": 52.3,
+        "total_cooperatives": 171,
+        "postal_centers": 14,
+        "road_accidents_2024": 813,
+        "road_casualties_2024": 1535,
+        "road_fatalities_2024": 44,
+        "poultry_capacity": 5000000,
+        "poultry_slaughterhouses": 1,
+        "naf_households": 6201,
+        "naf_individuals": 12568,
+        "naf_monthly_amount": 527488.0,
+        "emergency_households": 499,
+        "emergency_amount": 101350.0,
+        "aid_pct": 2.05,
+        "agri_establishments": 155,
+        "agri_nurseries": 113
+      }
+    },
+    {
+      "name": "الزرقاء",
+      "population": 1704500,
+      "area": 4761.0,
+      "budget_2026": 10416000.0,
+      "sectors": {
+        "التعليم": {
+          "score": 40.8,
+          "national_avg": 44.57,
+          "gap": -3.77,
+          "status": "متأخر"
+        },
+        "الصحة": {
+          "score": 23.09,
+          "national_avg": 28.45,
+          "gap": -5.36,
+          "status": "متوسط"
+        },
+        "الزراعة": {
+          "score": 34.71,
+          "national_avg": 26.49,
+          "gap": 8.22,
+          "status": "متوسط"
+        },
+        "السياحة": {
+          "score": 1.63,
+          "national_avg": 18.13,
+          "gap": -16.5,
+          "status": "متأخر"
+        },
+        "البنية التحتية": {
+          "score": 49.56,
+          "national_avg": 41.11,
+          "gap": 8.45,
+          "status": "متوسط"
+        },
+        "المياه والصرف الصحي": {
+          "score": 57.68,
+          "national_avg": 45.39,
+          "gap": 12.29,
+          "status": "متقدم"
+        },
+        "التنمية الاجتماعية": {
+          "score": 37.47,
+          "national_avg": 48.65,
+          "gap": -11.18,
+          "status": "متوسط"
+        },
+        "المؤشرات الاقتصادية": {
+          "score": 40.95,
+          "national_avg": 33.02,
+          "gap": 7.93,
+          "status": "متوسط"
+        }
+      },
+      "composite_index": 38.3,
+      "adv_sectors": 1,
+      "beh_sectors": 2,
+      "contextual_drivers": {
+        "unemployment_rate": 0.234,
+        "population_density": 358.0,
+        "refugee_count": 57222,
+        "refugee_pct": 3.36,
+        "avg_individual_income": 2041.5,
+        "low_income_pct": 19.2,
+        "medium_income_pct": 54.9,
+        "high_income_pct": 25.9,
+        "econ_participation_total": 31.4,
+        "econ_participation_female": 10.2,
+        "aid_recipient_pct": 1.38
+      },
+      "competitive_advantages": [
+        "العاصمة الصناعية ومحور الطاقة (مصفاة البترول والصناعات الثقيلة).",
+        "كوادر هندسية وعلمية (الجامعة الهاشمية) وخبرات في الصناعات الدوائية.",
+        "المنطقة الحرة والضليل الصناعية، مع شبكة مواصلات تربط الموانئ بالحدود.",
+        "قلب النقل البري والخدمات اللوجستية الذي يغذي كافة محافظات المملكة."
+      ],
+      "tourism_attractions": [
+        "قصر شبيب وقصر عمرة",
+        "محمية الأزرق المائية",
+        "متنزه الرصيفة والمجمعات الترفيهية"
+      ],
+      "raw_data": {
+        "total_schools": 856,
+        "total_students_gov": 226736,
+        "total_students_private": 25686,
+        "schools_gov_owned": 342,
+        "schools_gov_rented": 58,
+        "schools_gov_single_shift": 236,
+        "schools_gov_double_shift": 164,
+        "students_per_section": 31.78,
+        "student_teacher_ratio": 20.49,
+        "enrollment_secondary": 81.4,
+        "enrollment_pre": 52.0,
+        "total_hospitals": 9,
+        "total_beds": 1208,
+        "beds_per_10k": 7.09,
+        "health_centers": 35,
+        "specialist_doctors": 128,
+        "general_doctors": 139,
+        "nurses": 913,
+        "pharmacies": 495,
+        "private_hospital_beds": 275,
+        "pharma_factories": 26,
+        "agri_workers": 246,
+        "total_livestock": 432700,
+        "irrigated_area_dunum": 1471.0,
+        "tourism_employment": 690,
+        "hotels": 9,
+        "total_road_km": 657.0,
+        "water_per_capita_lpd": 115.9,
+        "sanitation_network_pct": 82.8,
+        "total_associations_2024": 167,
+        "cultural_centers": 3,
+        "total_investment_m": 74.3,
+        "investment_jobs": 765,
+        "investment_projects": 15,
+        "econ_participation_total": 31.4,
+        "econ_participation_female": 10.2,
+        "econ_participation_male": 52.6,
+        "total_cooperatives": 66,
+        "postal_centers": 19,
+        "road_accidents_2024": 1330,
+        "road_casualties_2024": 2022,
+        "road_fatalities_2024": 58,
+        "poultry_capacity": 73000000,
+        "poultry_slaughterhouses": 4,
+        "naf_households": 11248,
+        "naf_individuals": 23520,
+        "naf_monthly_amount": 1002007.0,
+        "emergency_households": 1324,
+        "emergency_amount": 270165.0,
+        "aid_pct": 1.38,
+        "agri_establishments": 53,
+        "agri_nurseries": 21
+      }
+    },
+    {
+      "name": "مأدبا",
+      "population": 236200,
+      "area": 940.0,
+      "budget_2026": 6616000.0,
+      "sectors": {
+        "التعليم": {
+          "score": 46.14,
+          "national_avg": 44.57,
+          "gap": 1.57,
+          "status": "متوسط"
+        },
+        "الصحة": {
+          "score": 18.36,
+          "national_avg": 28.45,
+          "gap": -10.09,
+          "status": "متأخر"
+        },
+        "الزراعة": {
+          "score": 10.03,
+          "national_avg": 26.49,
+          "gap": -16.46,
+          "status": "متأخر"
+        },
+        "السياحة": {
+          "score": 7.8,
+          "national_avg": 18.13,
+          "gap": -10.33,
+          "status": "متوسط"
+        },
+        "البنية التحتية": {
+          "score": 26.15,
+          "national_avg": 41.11,
+          "gap": -14.96,
+          "status": "متأخر"
+        },
+        "المياه والصرف الصحي": {
+          "score": 47.84,
+          "national_avg": 45.39,
+          "gap": 2.45,
+          "status": "متوسط"
+        },
+        "التنمية الاجتماعية": {
+          "score": 21.7,
+          "national_avg": 48.65,
+          "gap": -26.95,
+          "status": "متأخر"
+        },
+        "المؤشرات الاقتصادية": {
+          "score": 28.57,
+          "national_avg": 33.02,
+          "gap": -4.45,
+          "status": "متوسط"
+        }
+      },
+      "composite_index": 28.17,
+      "adv_sectors": 0,
+      "beh_sectors": 4,
+      "contextual_drivers": {
+        "unemployment_rate": 0.175,
+        "population_density": 251.4,
+        "refugee_count": 8122,
+        "refugee_pct": 3.44,
+        "avg_individual_income": 2217.3,
+        "low_income_pct": 17.4,
+        "medium_income_pct": 49.5,
+        "high_income_pct": 33.1,
+        "econ_participation_total": 34.2,
+        "econ_participation_female": 16.5,
+        "aid_recipient_pct": 2.47
+      },
+      "competitive_advantages": [
+        "مركز السياحة الدينية العالمي (جبل نيبو وكنائس الفسيفساء).",
+        "ريادة في صناعة الفسيفساء والحرف التراثية ذات القيمة التصديرية.",
+        "موقع استراتيجي قرب مطار الملكة علياء الدولي وحمامات ماعين.",
+        "تنوع في الإنتاج الزراعي النوعي خصوصاً في محاصيل العنب والزيتون."
+      ],
+      "tourism_attractions": [
+        "كنيسة خارطة الفسيفساء",
+        "جبل نيبو والإطلالات التاريخية",
+        "حمامات ماعين المعدنية والعلاجية"
+      ],
+      "raw_data": {
+        "total_schools": 250,
+        "total_students_gov": 62275,
+        "total_students_private": 15847,
+        "schools_gov_owned": 111,
+        "schools_gov_rented": 27,
+        "schools_gov_single_shift": 128,
+        "schools_gov_double_shift": 10,
+        "students_per_section": 23.36,
+        "student_teacher_ratio": 13.84,
+        "enrollment_secondary": 84.9,
+        "enrollment_pre": 38.3,
+        "total_hospitals": 3,
+        "total_beds": 191,
+        "beds_per_10k": 8.09,
+        "health_centers": 19,
+        "specialist_doctors": 44,
+        "general_doctors": 41,
+        "nurses": 358,
+        "pharmacies": 98,
+        "private_hospital_beds": 30,
+        "pharma_factories": 3,
+        "agri_workers": 108,
+        "total_livestock": 221300,
+        "irrigated_area_dunum": 434.7,
+        "tourism_employment": 1000,
+        "hotels": 25,
+        "total_road_km": 439.0,
+        "water_per_capita_lpd": 158.4,
+        "sanitation_network_pct": 47.4,
+        "total_associations_2024": 184,
+        "cultural_centers": 3,
+        "total_investment_m": 0.8,
+        "investment_jobs": 11,
+        "investment_projects": 1,
+        "econ_participation_total": 34.2,
+        "econ_participation_female": 16.5,
+        "econ_participation_male": 51.7,
+        "total_cooperatives": 112,
+        "postal_centers": 16,
+        "road_accidents_2024": 341,
+        "road_casualties_2024": 543,
+        "road_fatalities_2024": 14,
+        "poultry_capacity": 0,
+        "poultry_slaughterhouses": 0,
+        "naf_households": 2810,
+        "naf_individuals": 5841,
+        "naf_monthly_amount": 249943.0,
+        "emergency_households": 137,
+        "emergency_amount": 29225.0,
+        "aid_pct": 2.47,
+        "agri_establishments": 9,
+        "agri_nurseries": 3
+      }
+    },
+    {
+      "name": "إربد",
+      "population": 2210500,
+      "area": 1572.0,
+      "budget_2026": 9122000.0,
+      "sectors": {
+        "التعليم": {
+          "score": 56.9,
+          "national_avg": 44.57,
+          "gap": 12.33,
+          "status": "متقدم"
+        },
+        "الصحة": {
+          "score": 39.45,
+          "national_avg": 28.45,
+          "gap": 11.0,
+          "status": "متقدم"
+        },
+        "الزراعة": {
+          "score": 48.72,
+          "national_avg": 26.49,
+          "gap": 22.23,
+          "status": "متقدم"
+        },
+        "السياحة": {
+          "score": 4.63,
+          "national_avg": 18.13,
+          "gap": -13.5,
+          "status": "متوسط"
+        },
+        "البنية التحتية": {
+          "score": 74.37,
+          "national_avg": 41.11,
+          "gap": 33.26,
+          "status": "متقدم"
+        },
+        "المياه والصرف الصحي": {
+          "score": 28.07,
+          "national_avg": 45.39,
+          "gap": -17.32,
+          "status": "متأخر"
+        },
+        "التنمية الاجتماعية": {
+          "score": 49.21,
+          "national_avg": 48.65,
+          "gap": 0.56,
+          "status": "متوسط"
+        },
+        "المؤشرات الاقتصادية": {
+          "score": 37.21,
+          "national_avg": 33.02,
+          "gap": 4.19,
+          "status": "متوسط"
+        }
+      },
+      "composite_index": 45.12,
+      "adv_sectors": 4,
+      "beh_sectors": 1,
+      "contextual_drivers": {
+        "unemployment_rate": 0.245,
+        "population_density": 1406.4,
+        "refugee_count": 68377,
+        "refugee_pct": 3.09,
+        "avg_individual_income": 2170.1,
+        "low_income_pct": 16.0,
+        "medium_income_pct": 53.4,
+        "high_income_pct": 30.6,
+        "econ_participation_total": 33.4,
+        "econ_participation_female": 12.4,
+        "aid_recipient_pct": 1.76
+      },
+      "competitive_advantages": [
+        "حاضنة الموارد البشرية والعلمية المتميزة والقلب الزراعي النابض لشمال المملكة.",
+        "مركز طبي وعلمي عالمي، وتضم \"المنطقة التكنولوجية\" التي تدعم الابتكار التقني.",
+        "بيئة جاذبة للصناعات الطبية والتقنية المتقدمة بفضل وفرة الكفاءات الشابة.و وجود مدينة الحسن الصناعية ومنطقة Cyber City التكنولوجية",
+        "كثافة سكانية عالية توفر سوقاً استهلاكياً نشطاً وقوة شرائية ضخمة."
+      ],
+      "tourism_attractions": [
+        "مدينة أم قيس الأثرية (جدارا)",
+        "غابات برقش ووادي الريان",
+        "منتجعات الحمة الأردنية العلاجية"
+      ],
+      "raw_data": {
+        "total_schools": 1448,
+        "total_students_gov": 307421,
+        "total_students_private": 35740,
+        "schools_gov_owned": 605,
+        "schools_gov_rented": 143,
+        "schools_gov_single_shift": 570,
+        "schools_gov_double_shift": 178,
+        "students_per_section": 27.69,
+        "student_teacher_ratio": 16.79,
+        "enrollment_secondary": 83.2,
+        "enrollment_pre": 43.8,
+        "total_hospitals": 18,
+        "total_beds": 2459,
+        "beds_per_10k": 11.12,
+        "health_centers": 49,
+        "specialist_doctors": 212,
+        "general_doctors": 210,
+        "nurses": 1320,
+        "pharmacies": 703,
+        "private_hospital_beds": 251,
+        "pharma_factories": 15,
+        "agri_workers": 4230,
+        "total_livestock": 365700,
+        "irrigated_area_dunum": 6742.0,
+        "tourism_employment": 1693,
+        "hotels": 18,
+        "total_road_km": 917.0,
+        "water_per_capita_lpd": 108.3,
+        "sanitation_network_pct": 45.0,
+        "total_associations_2024": 1696,
+        "cultural_centers": 27,
+        "total_investment_m": 13.1,
+        "investment_jobs": 646,
+        "investment_projects": 21,
+        "econ_participation_total": 33.4,
+        "econ_participation_female": 12.4,
+        "econ_participation_male": 54.0,
+        "total_cooperatives": 153,
+        "postal_centers": 52,
+        "road_accidents_2024": 1977,
+        "road_casualties_2024": 3178,
+        "road_fatalities_2024": 61,
+        "poultry_capacity": 0,
+        "poultry_slaughterhouses": 0,
+        "naf_households": 18306,
+        "naf_individuals": 38811,
+        "naf_monthly_amount": 1635473.0,
+        "emergency_households": 1174,
+        "emergency_amount": 240295.0,
+        "aid_pct": 1.76,
+        "agri_establishments": 80,
+        "agri_nurseries": 28
+      }
+    },
+    {
+      "name": "المفرق",
+      "population": 686800,
+      "area": 26551.0,
+      "budget_2026": 8659000.0,
+      "sectors": {
+        "التعليم": {
+          "score": 28.75,
+          "national_avg": 44.57,
+          "gap": -15.82,
+          "status": "متأخر"
+        },
+        "الصحة": {
+          "score": 16.97,
+          "national_avg": 28.45,
+          "gap": -11.48,
+          "status": "متأخر"
+        },
+        "الزراعة": {
+          "score": 50.39,
+          "national_avg": 26.49,
+          "gap": 23.9,
+          "status": "متقدم"
+        },
+        "السياحة": {
+          "score": 0.04,
+          "national_avg": 18.13,
+          "gap": -18.09,
+          "status": "متأخر"
+        },
+        "البنية التحتية": {
+          "score": 58.98,
+          "national_avg": 41.11,
+          "gap": 17.87,
+          "status": "متقدم"
+        },
+        "المياه والصرف الصحي": {
+          "score": 30.47,
+          "national_avg": 45.39,
+          "gap": -14.92,
+          "status": "متأخر"
+        },
+        "التنمية الاجتماعية": {
+          "score": 42.62,
+          "national_avg": 48.65,
+          "gap": -6.03,
+          "status": "متوسط"
+        },
+        "المؤشرات الاقتصادية": {
+          "score": 13.37,
+          "national_avg": 33.02,
+          "gap": -19.65,
+          "status": "متأخر"
+        }
+      },
+      "composite_index": 27.81,
+      "adv_sectors": 2,
+      "beh_sectors": 5,
+      "contextual_drivers": {
+        "unemployment_rate": 0.286,
+        "population_density": 25.9,
+        "refugee_count": 99418,
+        "refugee_pct": 14.48,
+        "avg_individual_income": 1789.2,
+        "low_income_pct": 19.6,
+        "medium_income_pct": 56.2,
+        "high_income_pct": 24.2,
+        "econ_participation_total": 35.4,
+        "econ_participation_female": 14.6,
+        "aid_recipient_pct": 2.33
+      },
+      "competitive_advantages": [
+        "موقع استراتيجي متميز تضم منفذين حدوديين (جابر والكرامة) وشبكة طرق دولية.",
+        "ريادة في الزراعة البعلية والمروية، وتخصصات الطاقة والبيئة في جامعة آل البيت.",
+        "منطقة الملك الحسين بن طلال التنموية كمركز لوجستي وصناعي إقليمي. ومدينة الثريا التنموية الخاصة",
+        "احتياطي استراتيجي هائل للمشاريع الكبرى وتوليد الطاقة البديلة (شمس ورياح)."
+      ],
+      "tourism_attractions": [
+        "آثار ارحاب وآثار أم الجمال",
+        "سياحة طبيعية",
+        "منتجع وفندق رويال مون السياحي"
+      ],
+      "raw_data": {
+        "total_schools": 692,
+        "total_students_gov": 150202,
+        "total_students_private": 10685,
+        "schools_gov_owned": 453,
+        "schools_gov_rented": 134,
+        "schools_gov_single_shift": 457,
+        "schools_gov_double_shift": 130,
+        "students_per_section": 22.83,
+        "student_teacher_ratio": 14.34,
+        "enrollment_secondary": 65.4,
+        "enrollment_pre": 30.9,
+        "total_hospitals": 7,
+        "total_beds": 579,
+        "beds_per_10k": 8.43,
+        "health_centers": 34,
+        "specialist_doctors": 62,
+        "general_doctors": 104,
+        "nurses": 722,
+        "pharmacies": 181,
+        "private_hospital_beds": 109,
+        "pharma_factories": 6,
+        "agri_workers": 338,
+        "total_livestock": 926900,
+        "irrigated_area_dunum": 2669.9,
+        "tourism_employment": 156,
+        "hotels": 3,
+        "total_road_km": 1371.0,
+        "water_per_capita_lpd": 175.0,
+        "sanitation_network_pct": 13.1,
+        "total_associations_2024": 270,
+        "cultural_centers": 3,
+        "total_investment_m": 16.3,
+        "investment_jobs": 230,
+        "investment_projects": 9,
+        "econ_participation_total": 35.4,
+        "econ_participation_female": 14.6,
+        "econ_participation_male": 55.5,
+        "total_cooperatives": 103,
+        "postal_centers": 12,
+        "road_accidents_2024": 607,
+        "road_casualties_2024": 1073,
+        "road_fatalities_2024": 50,
+        "poultry_capacity": 62800000,
+        "poultry_slaughterhouses": 3,
+        "naf_households": 6828,
+        "naf_individuals": 15982,
+        "naf_monthly_amount": 678053.0,
+        "emergency_households": 273,
+        "emergency_amount": 54785.0,
+        "aid_pct": 2.33,
+        "agri_establishments": 7,
+        "agri_nurseries": 6
+      }
+    },
+    {
+      "name": "جرش",
+      "population": 296000,
+      "area": 410.0,
+      "budget_2026": 7105000.0,
+      "sectors": {
+        "التعليم": {
+          "score": 46.96,
+          "national_avg": 44.57,
+          "gap": 2.39,
+          "status": "متوسط"
+        },
+        "الصحة": {
+          "score": 12.57,
+          "national_avg": 28.45,
+          "gap": -15.88,
+          "status": "متأخر"
+        },
+        "الزراعة": {
+          "score": 10.36,
+          "national_avg": 26.49,
+          "gap": -16.13,
+          "status": "متأخر"
+        },
+        "السياحة": {
+          "score": 1.95,
+          "national_avg": 18.13,
+          "gap": -16.18,
+          "status": "متأخر"
+        },
+        "البنية التحتية": {
+          "score": 26.82,
+          "national_avg": 41.11,
+          "gap": -14.29,
+          "status": "متأخر"
+        },
+        "المياه والصرف الصحي": {
+          "score": 21.66,
+          "national_avg": 45.39,
+          "gap": -23.73,
+          "status": "متأخر"
+        },
+        "التنمية الاجتماعية": {
+          "score": 31.98,
+          "national_avg": 48.65,
+          "gap": -16.67,
+          "status": "متأخر"
+        },
+        "المؤشرات الاقتصادية": {
+          "score": 17.13,
+          "national_avg": 33.02,
+          "gap": -15.89,
+          "status": "متأخر"
+        }
+      },
+      "composite_index": 22.25,
+      "adv_sectors": 0,
+      "beh_sectors": 7,
+      "contextual_drivers": {
+        "unemployment_rate": 0.25,
+        "population_density": 722.3,
+        "refugee_count": 4478,
+        "refugee_pct": 1.51,
+        "avg_individual_income": 1877.3,
+        "low_income_pct": 17.0,
+        "medium_income_pct": 57.4,
+        "high_income_pct": 25.6,
+        "econ_participation_total": 35.7,
+        "econ_participation_female": 14.4,
+        "aid_recipient_pct": 1.85
+      },
+      "competitive_advantages": [
+        "مركز عالمي للسياحة الأثرية (المدينة الرومانية) مع عمق زراعي وحرفي أصيل.",
+        "ريادة في الصناعات الحرفية واليدوية، وإنتاج الزيتون والمنتجات الغذائية التقليدية.",
+        "بيئة خصبة للاستثمار في التصنيع الغذائي، السياحة الثقافية، والحرف التراثية.",
+        "مهرجان جرش الدولي الذي يمنحها ميزة اقتصادية ثقافية وتسويقية موسمية."
+      ],
+      "tourism_attractions": [
+        "شارع الأعمدة والمسارح الرومانية",
+        "محمية غابات دبين",
+        "مخيمات سياحية ومهرجان جرش الثقافي"
+      ],
+      "raw_data": {
+        "total_schools": 291,
+        "total_students_gov": 53491,
+        "total_students_private": 9561,
+        "schools_gov_owned": 150,
+        "schools_gov_rented": 33,
+        "schools_gov_single_shift": 169,
+        "schools_gov_double_shift": 14,
+        "students_per_section": 24.29,
+        "student_teacher_ratio": 14.38,
+        "enrollment_secondary": 89.5,
+        "enrollment_pre": 44.1,
+        "total_hospitals": 2,
+        "total_beds": 167,
+        "beds_per_10k": 5.64,
+        "health_centers": 20,
+        "specialist_doctors": 48,
+        "general_doctors": 58,
+        "nurses": 415,
+        "pharmacies": 107,
+        "private_hospital_beds": 31,
+        "pharma_factories": 2,
+        "agri_workers": 253,
+        "total_livestock": 56900,
+        "irrigated_area_dunum": 173.7,
+        "tourism_employment": 441,
+        "hotels": 7,
+        "total_road_km": 442.0,
+        "water_per_capita_lpd": 92.5,
+        "sanitation_network_pct": 44.0,
+        "total_associations_2024": 424,
+        "cultural_centers": 0,
+        "total_investment_m": 2.7,
+        "investment_jobs": 602,
+        "investment_projects": 5,
+        "econ_participation_total": 35.7,
+        "econ_participation_female": 14.4,
+        "econ_participation_male": 56.1,
+        "total_cooperatives": 65,
+        "postal_centers": 14,
+        "road_accidents_2024": 326,
+        "road_casualties_2024": 626,
+        "road_fatalities_2024": 13,
+        "poultry_capacity": 0,
+        "poultry_slaughterhouses": 1,
+        "naf_households": 2698,
+        "naf_individuals": 5464,
+        "naf_monthly_amount": 236197.0,
+        "emergency_households": 198,
+        "emergency_amount": 41220.0,
+        "aid_pct": 1.85,
+        "agri_establishments": 45,
+        "agri_nurseries": 38
+      }
+    },
+    {
+      "name": "عجلون",
+      "population": 219900,
+      "area": 420.0,
+      "budget_2026": 7240000.0,
+      "sectors": {
+        "التعليم": {
+          "score": 41.76,
+          "national_avg": 44.57,
+          "gap": -2.81,
+          "status": "متوسط"
+        },
+        "الصحة": {
+          "score": 20.37,
+          "national_avg": 28.45,
+          "gap": -8.08,
+          "status": "متوسط"
+        },
+        "الزراعة": {
+          "score": 8.59,
+          "national_avg": 26.49,
+          "gap": -17.9,
+          "status": "متأخر"
+        },
+        "السياحة": {
+          "score": 1.38,
+          "national_avg": 18.13,
+          "gap": -16.75,
+          "status": "متأخر"
+        },
+        "البنية التحتية": {
+          "score": 24.55,
+          "national_avg": 41.11,
+          "gap": -16.56,
+          "status": "متأخر"
+        },
+        "المياه والصرف الصحي": {
+          "score": 13.2,
+          "national_avg": 45.39,
+          "gap": -32.19,
+          "status": "متأخر"
+        },
+        "التنمية الاجتماعية": {
+          "score": 49.71,
+          "national_avg": 48.65,
+          "gap": 1.06,
+          "status": "متوسط"
+        },
+        "المؤشرات الاقتصادية": {
+          "score": 21.02,
+          "national_avg": 33.02,
+          "gap": -12.0,
+          "status": "متوسط"
+        }
+      },
+      "composite_index": 23.52,
+      "adv_sectors": 0,
+      "beh_sectors": 4,
+      "contextual_drivers": {
+        "unemployment_rate": 0.28,
+        "population_density": 524.0,
+        "refugee_count": 2902,
+        "refugee_pct": 1.32,
+        "avg_individual_income": 2012.8,
+        "low_income_pct": 20.6,
+        "medium_income_pct": 46.3,
+        "high_income_pct": 33.1,
+        "econ_participation_total": 33.1,
+        "econ_participation_female": 15.4,
+        "aid_recipient_pct": 1.7
+      },
+      "competitive_advantages": [
+        "الرئة البيئية للأردن ومركز السياحة البيئية المستدامة (الغابات).",
+        "تخصص في النزل البيئية، سياحة المغامرات، والزراعة الجبلية النوعية.",
+        "منطقة عجلون التنموية ومشروع التلفريك المحفز للاستثمار السياحي.",
+        "مناخ معتدل صيفاً يجعلها الوجهة الأولى للسياحة الداخلية والاصطياف."
+      ],
+      "tourism_attractions": [
+        "قلعة عجلون (الربض)",
+        "محمية غابات عجلون الكثيفة",
+        "تلفريك عجلون والمسارات الخشبية"
+      ],
+      "raw_data": {
+        "total_schools": 232,
+        "total_students_gov": 39427,
+        "total_students_private": 12250,
+        "schools_gov_owned": 105,
+        "schools_gov_rented": 30,
+        "schools_gov_single_shift": 125,
+        "schools_gov_double_shift": 10,
+        "students_per_section": 22.24,
+        "student_teacher_ratio": 13.69,
+        "enrollment_secondary": 83.9,
+        "enrollment_pre": 44.6,
+        "total_hospitals": 2,
+        "total_beds": 433,
+        "beds_per_10k": 19.69,
+        "health_centers": 21,
+        "specialist_doctors": 29,
+        "general_doctors": 48,
+        "nurses": 340,
+        "pharmacies": 58,
+        "private_hospital_beds": 0,
+        "pharma_factories": 0,
+        "agri_workers": 357,
+        "total_livestock": 77000,
+        "irrigated_area_dunum": 357.0,
+        "tourism_employment": 192,
+        "hotels": 8,
+        "total_road_km": 248.0,
+        "water_per_capita_lpd": 88.1,
+        "sanitation_network_pct": 33.1,
+        "total_associations_2024": 183,
+        "cultural_centers": 3,
+        "total_investment_m": 42.5,
+        "investment_jobs": 0,
+        "investment_projects": 1,
+        "econ_participation_total": 33.1,
+        "econ_participation_female": 15.4,
+        "econ_participation_male": 50.7,
+        "total_cooperatives": 84,
+        "postal_centers": 10,
+        "road_accidents_2024": 247,
+        "road_casualties_2024": 436,
+        "road_fatalities_2024": 6,
+        "poultry_capacity": 0,
+        "poultry_slaughterhouses": 0,
+        "naf_households": 1953,
+        "naf_individuals": 3737,
+        "naf_monthly_amount": 150978.0,
+        "emergency_households": 120,
+        "emergency_amount": 25700.0,
+        "aid_pct": 1.7,
+        "agri_establishments": 2,
+        "agri_nurseries": 1
+      }
+    },
+    {
+      "name": "الكرك",
+      "population": 395400,
+      "area": 3495.0,
+      "budget_2026": 7326000.0,
+      "sectors": {
+        "التعليم": {
+          "score": 49.78,
+          "national_avg": 44.57,
+          "gap": 5.21,
+          "status": "متقدم"
+        },
+        "الصحة": {
+          "score": 29.79,
+          "national_avg": 28.45,
+          "gap": 1.34,
+          "status": "متوسط"
+        },
+        "الزراعة": {
+          "score": 34.71,
+          "national_avg": 26.49,
+          "gap": 8.22,
+          "status": "متوسط"
+        },
+        "السياحة": {
+          "score": 0.19,
+          "national_avg": 18.13,
+          "gap": -17.94,
+          "status": "متأخر"
+        },
+        "البنية التحتية": {
+          "score": 32.78,
+          "national_avg": 41.11,
+          "gap": -8.33,
+          "status": "متوسط"
+        },
+        "المياه والصرف الصحي": {
+          "score": 27.76,
+          "national_avg": 45.39,
+          "gap": -17.63,
+          "status": "متأخر"
+        },
+        "التنمية الاجتماعية": {
+          "score": 22.55,
+          "national_avg": 48.65,
+          "gap": -26.1,
+          "status": "متأخر"
+        },
+        "المؤشرات الاقتصادية": {
+          "score": 35.55,
+          "national_avg": 33.02,
+          "gap": 2.53,
+          "status": "متوسط"
+        }
+      },
+      "composite_index": 33.3,
+      "adv_sectors": 1,
+      "beh_sectors": 3,
+      "contextual_drivers": {
+        "unemployment_rate": 0.18,
+        "population_density": 113.1,
+        "refugee_count": 4932,
+        "refugee_pct": 1.25,
+        "avg_individual_income": 2373.1,
+        "low_income_pct": 19.0,
+        "medium_income_pct": 42.7,
+        "high_income_pct": 38.3,
+        "econ_participation_total": 38.0,
+        "econ_participation_female": 22.4,
+        "aid_recipient_pct": 2.14
+      },
+      "competitive_advantages": [
+        "محور الربط بين وسط وجنوب المملكة (الطريق الصحراوي والملكي).",
+        "ثقل أكاديمي وعسكري (جامعة مؤتة) وخبرات في الزراعة الحقلية الواسعة.",
+        "قلعة الكرك كأصل سياحي وموارد طبيعية قابلة للتطوير الصناعي.",
+        "عمق تاريخي واجتماعي يوفر فرصاً لسياحة المقامات والمسارات الدينية."
+      ],
+      "tourism_attractions": [
+        "قلعة الكرك الضخمة",
+        "وادي بن حماد (سياحة المغامرات)",
+        "مقامات الصحابة وسياحة دينية"
+      ],
+      "raw_data": {
+        "total_schools": 416,
+        "total_students_gov": 78400,
+        "total_students_private": 11990,
+        "schools_gov_owned": 257,
+        "schools_gov_rented": 63,
+        "schools_gov_single_shift": 316,
+        "schools_gov_double_shift": 4,
+        "students_per_section": 21.8,
+        "student_teacher_ratio": 11.42,
+        "enrollment_secondary": 84.8,
+        "enrollment_pre": 39.0,
+        "total_hospitals": 5,
+        "total_beds": 521,
+        "beds_per_10k": 13.18,
+        "health_centers": 51,
+        "specialist_doctors": 88,
+        "general_doctors": 94,
+        "nurses": 682,
+        "pharmacies": 140,
+        "private_hospital_beds": 41,
+        "pharma_factories": 3,
+        "agri_workers": 349,
+        "total_livestock": 430000,
+        "irrigated_area_dunum": 2125.0,
+        "tourism_employment": 148,
+        "hotels": 4,
+        "total_road_km": 713.0,
+        "water_per_capita_lpd": 165.2,
+        "sanitation_network_pct": 15.7,
+        "total_associations_2024": 287,
+        "cultural_centers": 5,
+        "total_investment_m": 1.1,
+        "investment_jobs": 0,
+        "investment_projects": 3,
+        "econ_participation_total": 38.0,
+        "econ_participation_female": 22.4,
+        "econ_participation_male": 54.0,
+        "total_cooperatives": 92,
+        "postal_centers": 13,
+        "road_accidents_2024": 500,
+        "road_casualties_2024": 834,
+        "road_fatalities_2024": 22,
+        "poultry_capacity": 24000000,
+        "poultry_slaughterhouses": 1,
+        "naf_households": 4228,
+        "naf_individuals": 8453,
+        "naf_monthly_amount": 344664.0,
+        "emergency_households": 261,
+        "emergency_amount": 55125.0,
+        "aid_pct": 2.14,
+        "agri_establishments": 18,
+        "agri_nurseries": 5
+      }
+    },
+    {
+      "name": "الطفيلة",
+      "population": 120300,
+      "area": 2209.0,
+      "budget_2026": 6701000.0,
+      "sectors": {
+        "التعليم": {
+          "score": 46.86,
+          "national_avg": 44.57,
+          "gap": 2.29,
+          "status": "متوسط"
+        },
+        "الصحة": {
+          "score": 27.9,
+          "national_avg": 28.45,
+          "gap": -0.55,
+          "status": "متوسط"
+        },
+        "الزراعة": {
+          "score": 13.47,
+          "national_avg": 26.49,
+          "gap": -13.02,
+          "status": "متأخر"
+        },
+        "السياحة": {
+          "score": 3.71,
+          "national_avg": 18.13,
+          "gap": -14.42,
+          "status": "متأخر"
+        },
+        "البنية التحتية": {
+          "score": 30.49,
+          "national_avg": 41.11,
+          "gap": -10.62,
+          "status": "متأخر"
+        },
+        "المياه والصرف الصحي": {
+          "score": 35.96,
+          "national_avg": 45.39,
+          "gap": -9.43,
+          "status": "متوسط"
+        },
+        "التنمية الاجتماعية": {
+          "score": 68.61,
+          "national_avg": 48.65,
+          "gap": 19.96,
+          "status": "متقدم"
+        },
+        "المؤشرات الاقتصادية": {
+          "score": 16.48,
+          "national_avg": 33.02,
+          "gap": -16.54,
+          "status": "متأخر"
+        }
+      },
+      "composite_index": 28.17,
+      "adv_sectors": 1,
+      "beh_sectors": 4,
+      "contextual_drivers": {
+        "unemployment_rate": 0.182,
+        "population_density": 54.4,
+        "refugee_count": 883,
+        "refugee_pct": 0.73,
+        "avg_individual_income": 2042.5,
+        "low_income_pct": 15.7,
+        "medium_income_pct": 57.1,
+        "high_income_pct": 27.2,
+        "econ_participation_total": 37.4,
+        "econ_participation_female": 19.0,
+        "aid_recipient_pct": 1.49
+      },
+      "competitive_advantages": [
+        "المركز الوطني للطاقة المتجددة (الرياح) والثروات التعدينية (الفوسفات).",
+        "طاقات بشرية شابة متخصصة في الهندسة التقنية والعلوم البيئية.",
+        "بيئة بكر لمشاريع التوسع الصناعي والتعديني والسياحة البيئية (ضانا).",
+        "تضاريس جغرافية فريدة تسمح بمشاريع سياحة المغامرات والتخييم الجبلي."
+      ],
+      "tourism_attractions": [
+        "قرية السلع الأثرية",
+        "محمية ضانا للمحيط الحيوي",
+        "حمامات عفرا والبربيطة المعدنية"
+      ],
+      "raw_data": {
+        "total_schools": 150,
+        "total_students_gov": 23414,
+        "total_students_private": 3455,
+        "schools_gov_owned": 98,
+        "schools_gov_rented": 26,
+        "schools_gov_single_shift": 122,
+        "schools_gov_double_shift": 2,
+        "students_per_section": 22.44,
+        "student_teacher_ratio": 11.32,
+        "enrollment_secondary": 85.2,
+        "enrollment_pre": 46.2,
+        "total_hospitals": 2,
+        "total_beds": 338,
+        "beds_per_10k": 28.1,
+        "health_centers": 20,
+        "specialist_doctors": 22,
+        "general_doctors": 41,
+        "nurses": 295,
+        "pharmacies": 0,
+        "private_hospital_beds": 0,
+        "pharma_factories": 0,
+        "agri_workers": 59,
+        "total_livestock": 126000,
+        "irrigated_area_dunum": 1146.5,
+        "tourism_employment": 117,
+        "hotels": 17,
+        "total_road_km": 614.0,
+        "water_per_capita_lpd": 142.0,
+        "sanitation_network_pct": 39.0,
+        "total_associations_2024": 99,
+        "cultural_centers": 0,
+        "total_investment_m": 0.2,
+        "investment_jobs": 0,
+        "investment_projects": 1,
+        "econ_participation_total": 37.4,
+        "econ_participation_female": 19.0,
+        "econ_participation_male": 56.6,
+        "total_cooperatives": 61,
+        "postal_centers": 7,
+        "road_accidents_2024": 146,
+        "road_casualties_2024": 279,
+        "road_fatalities_2024": 4,
+        "poultry_capacity": 0,
+        "poultry_slaughterhouses": 0,
+        "naf_households": 928,
+        "naf_individuals": 1795,
+        "naf_monthly_amount": 72782.0,
+        "emergency_households": 52,
+        "emergency_amount": 11350.0,
+        "aid_pct": 1.49,
+        "agri_establishments": 2,
+        "agri_nurseries": 0
+      }
+    },
+    {
+      "name": "معان",
+      "population": 197900,
+      "area": 32832.0,
+      "budget_2026": 8901000.0,
+      "sectors": {
+        "التعليم": {
+          "score": 38.65,
+          "national_avg": 44.57,
+          "gap": -5.92,
+          "status": "متأخر"
+        },
+        "الصحة": {
+          "score": 14.66,
+          "national_avg": 28.45,
+          "gap": -13.79,
+          "status": "متأخر"
+        },
+        "الزراعة": {
+          "score": 16.22,
+          "national_avg": 26.49,
+          "gap": -10.27,
+          "status": "متأخر"
+        },
+        "السياحة": {
+          "score": 66.51,
+          "national_avg": 18.13,
+          "gap": 48.38,
+          "status": "متقدم"
+        },
+        "البنية التحتية": {
+          "score": 39.76,
+          "national_avg": 41.11,
+          "gap": -1.35,
+          "status": "متوسط"
+        },
+        "المياه والصرف الصحي": {
+          "score": 49.67,
+          "national_avg": 45.39,
+          "gap": 4.28,
+          "status": "متوسط"
+        },
+        "التنمية الاجتماعية": {
+          "score": 62.46,
+          "national_avg": 48.65,
+          "gap": 13.81,
+          "status": "متقدم"
+        },
+        "المؤشرات الاقتصادية": {
+          "score": 11.34,
+          "national_avg": 33.02,
+          "gap": -21.68,
+          "status": "متأخر"
+        }
+      },
+      "composite_index": 28.92,
+      "adv_sectors": 2,
+      "beh_sectors": 4,
+      "contextual_drivers": {
+        "unemployment_rate": 0.207,
+        "population_density": 6.0,
+        "refugee_count": 5895,
+        "refugee_pct": 2.98,
+        "avg_individual_income": 1870.2,
+        "low_income_pct": 20.6,
+        "medium_income_pct": 53.5,
+        "high_income_pct": 25.9,
+        "econ_participation_total": 34.5,
+        "econ_participation_female": 16.2,
+        "aid_recipient_pct": 2.02
+      },
+      "competitive_advantages": [
+        "حاضنة البترا ووادي رم (أصول سياحية عالمية ودولية).",
+        "تضم الشوبك كمنطقة زراعية فريدة (عاصمة التفاح والأمن الغذائي بالجنوب).",
+        "منطقة معان التنموية، التفوق في قطاع التعدين، وخدمات النقل واللوجستيك.",
+        "محطة رئيسية على طريق الحج والتجارة الدولية ومشاريع الهيدروجين الأخضر."
+      ],
+      "tourism_attractions": [
+        "مدينة البتراء (إحدى عجائب الدنيا)",
+        "وادي رم (السياحة الصحراوية)",
+        "مخيمات النجوم الفاخرة (Martian Tents)"
+      ],
+      "raw_data": {
+        "total_schools": 239,
+        "total_students_gov": 40804,
+        "total_students_private": 3264,
+        "schools_gov_owned": 159,
+        "schools_gov_rented": 40,
+        "schools_gov_single_shift": 193,
+        "schools_gov_double_shift": 6,
+        "students_per_section": 18.75,
+        "student_teacher_ratio": 10.6,
+        "enrollment_secondary": 80.2,
+        "enrollment_pre": 36.6,
+        "total_hospitals": 2,
+        "total_beds": 210,
+        "beds_per_10k": 10.61,
+        "health_centers": 17,
+        "specialist_doctors": 34,
+        "general_doctors": 52,
+        "nurses": 315,
+        "pharmacies": 42,
+        "private_hospital_beds": 0,
+        "pharma_factories": 1,
+        "agri_workers": 264,
+        "total_livestock": 331900,
+        "irrigated_area_dunum": 162.3,
+        "tourism_employment": 4096,
+        "hotels": 318,
+        "total_road_km": 1041.0,
+        "water_per_capita_lpd": 188.5,
+        "sanitation_network_pct": 34.7,
+        "total_associations_2024": 159,
+        "cultural_centers": 1,
+        "total_investment_m": 0.6,
+        "investment_jobs": 120,
+        "investment_projects": 2,
+        "econ_participation_total": 34.5,
+        "econ_participation_female": 16.2,
+        "econ_participation_male": 52.4,
+        "total_cooperatives": 135,
+        "postal_centers": 12,
+        "road_accidents_2024": 283,
+        "road_casualties_2024": 527,
+        "road_fatalities_2024": 44,
+        "poultry_capacity": 0,
+        "poultry_slaughterhouses": 0,
+        "naf_households": 1929,
+        "naf_individuals": 4004,
+        "naf_monthly_amount": 166822.0,
+        "emergency_households": 61,
+        "emergency_amount": 12550.0,
+        "aid_pct": 2.02,
+        "agri_establishments": 5,
+        "agri_nurseries": 1
+      }
+    },
+    {
+      "name": "العقبة",
+      "population": 250900,
+      "area": 6905.0,
+      "budget_2026": 6150000.0,
+      "sectors": {
+        "التعليم": {
+          "score": 39.42,
+          "national_avg": 44.57,
+          "gap": -5.15,
+          "status": "متأخر"
+        },
+        "الصحة": {
+          "score": 15.72,
+          "national_avg": 28.45,
+          "gap": -12.73,
+          "status": "متأخر"
+        },
+        "الزراعة": {
+          "score": 9.38,
+          "national_avg": 26.49,
+          "gap": -17.11,
+          "status": "متأخر"
+        },
+        "السياحة": {
+          "score": 36.2,
+          "national_avg": 18.13,
+          "gap": 18.07,
+          "status": "متقدم"
+        },
+        "البنية التحتية": {
+          "score": 37.53,
+          "national_avg": 41.11,
+          "gap": -3.58,
+          "status": "متوسط"
+        },
+        "المياه والصرف الصحي": {
+          "score": 93.23,
+          "national_avg": 45.39,
+          "gap": 47.84,
+          "status": "متقدم"
+        },
+        "التنمية الاجتماعية": {
+          "score": 91.76,
+          "national_avg": 48.65,
+          "gap": 43.11,
+          "status": "متقدم"
+        },
+        "المؤشرات الاقتصادية": {
+          "score": 25.91,
+          "national_avg": 33.02,
+          "gap": -7.11,
+          "status": "متوسط"
+        }
+      },
+      "composite_index": 36.19,
+      "adv_sectors": 3,
+      "beh_sectors": 3,
+      "contextual_drivers": {
+        "unemployment_rate": 0.067,
+        "population_density": 36.3,
+        "refugee_count": 2746,
+        "refugee_pct": 1.09,
+        "avg_individual_income": 2128.2,
+        "low_income_pct": 17.4,
+        "medium_income_pct": 54.3,
+        "high_income_pct": 28.3,
+        "econ_participation_total": 28.8,
+        "econ_participation_female": 7.6,
+        "aid_recipient_pct": 1.21
+      },
+      "competitive_advantages": [
+        "المنفذ البحري الوحيد وبوابة التجارة الوطنية والدولية للأردن.",
+        "سياحة بحرية عالمية ومركز لوجستي للنقل البحري والتخزين.",
+        "منطقة اقتصادية خاصة ببيئة استثمارية تنافسية ومحور نمو استراتيجي.",
+        "نظام جمركي وضريبي خاص (منطقة حرة) يعزز القوة الشرائية والتجارة."
+      ],
+      "tourism_attractions": [
+        "قلعة العقبة ومتحف الآثار",
+        "المحمية البحرية والشعاب المرجانية",
+        "الألعاب المائية وسياحة التسوق"
+      ],
+      "raw_data": {
+        "total_schools": 164,
+        "total_students_gov": 37938,
+        "total_students_private": 14242,
+        "schools_gov_owned": 90,
+        "schools_gov_rented": 0,
+        "schools_gov_single_shift": 76,
+        "schools_gov_double_shift": 14,
+        "students_per_section": 26.22,
+        "student_teacher_ratio": 15.07,
+        "enrollment_secondary": 85.7,
+        "enrollment_pre": 35.5,
+        "total_hospitals": 3,
+        "total_beds": 316,
+        "beds_per_10k": 12.6,
+        "health_centers": 10,
+        "specialist_doctors": 32,
+        "general_doctors": 41,
+        "nurses": 248,
+        "pharmacies": 49,
+        "private_hospital_beds": 84,
+        "pharma_factories": 5,
+        "agri_workers": 134,
+        "total_livestock": 151300,
+        "irrigated_area_dunum": 951.1,
+        "tourism_employment": 4419,
+        "hotels": 109,
+        "total_road_km": 544.0,
+        "water_per_capita_lpd": 210.4,
+        "sanitation_network_pct": 87.4,
+        "total_associations_2024": 102,
+        "cultural_centers": 3,
+        "total_investment_m": 0.1,
+        "investment_jobs": 0,
+        "investment_projects": 1,
+        "econ_participation_total": 28.8,
+        "econ_participation_female": 7.6,
+        "econ_participation_male": 51.1,
+        "total_cooperatives": 90,
+        "postal_centers": 6,
+        "road_accidents_2024": 267,
+        "road_casualties_2024": 396,
+        "road_fatalities_2024": 21,
+        "poultry_capacity": 0,
+        "poultry_slaughterhouses": 0,
+        "naf_households": 1469,
+        "naf_individuals": 3041,
+        "naf_monthly_amount": 124993.0,
+        "emergency_households": 74,
+        "emergency_amount": 15050.0,
+        "aid_pct": 1.21,
+        "agri_establishments": 4,
+        "agri_nurseries": 1
+      }
+    }
+  ],
+  "national_averages": {
+    "التعليم": 44.57,
+    "الصحة": 28.45,
+    "الزراعة": 26.49,
+    "السياحة": 18.13,
+    "البنية التحتية": 41.11,
+    "المياه والصرف الصحي": 45.39,
+    "التنمية الاجتماعية": 48.65,
+    "المؤشرات الاقتصادية": 33.02
+  },
+  "composite_index": {
+    "national_avg": 35.85,
+    "national_std": 14.94,
+    "sector_weights": {
+      "المؤشرات الاقتصادية": 0.3,
+      "البنية التحتية": 0.15,
+      "التعليم": 0.15,
+      "الصحة": 0.15,
+      "المياه والصرف الصحي": 0.08,
+      "الزراعة": 0.07,
+      "السياحة": 0.05,
+      "التنمية الاجتماعية": 0.05
+    }
+  },
+  "metadata": {
+    "generated_at": "2026-06-05T21:01:07Z",
+    "total_govs": 12,
+    "methodology": "Winsorized Min-Max 5-95% | Quantity: blended 75%abs+25%pc | Quality/access: pc or % weighted by sector | Economic 20% / Edu 18% / Health 18% / Infra 14% / Water 12% / SocDev 8% / Agri 7% / Tourism 3% | Simple natl avg | 3-status"
+  }
+}

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>سجل التدقيق — نظام التحليل التنموي للمحافظات الأردنية</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',Tahoma,Arial,sans-serif;background:#f5f6fa;color:#1a1a2e;direction:rtl;padding:20px}
+.header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:8px}
+.header h1{font-size:18px;color:#1a3a5c}
+.header h1 span{color:#c8a84b}
+.nav-links{display:flex;gap:8px}
+.nav-links a{color:#1a3a5c;text-decoration:none;font-size:12px;padding:6px 14px;border-radius:6px;background:#fff;border:1px solid #e5e7eb;transition:all .2s}
+.nav-links a:hover{background:#1a3a5c;color:#fff}
+.header-logo{height:32px;width:auto}
+.badge{display:inline-block;background:rgba(200,168,75,.15);color:#c8a84b;padding:2px 10px;border-radius:12px;font-size:10px;font-weight:600;margin-right:8px}
+.stats{display:flex;gap:12px;margin-bottom:16px;flex-wrap:wrap}
+.stat-card{background:#fff;border-radius:8px;padding:12px 18px;border:1px solid #e5e7eb;flex:1;min-width:120px}
+.stat-card .num{font-size:22px;font-weight:800;color:#1a3a5c}
+.stat-card .lbl{font-size:11px;color:#9ca3af;margin-top:2px}
+.filters{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+.filters input,.filters select{padding:7px 12px;border:1px solid #e5e7eb;border-radius:6px;font-size:12px;font-family:inherit}
+.filters input{flex:1;min-width:150px}
+.btn{background:#1a3a5c;color:#fff;border:none;padding:7px 16px;border-radius:6px;font-size:12px;cursor:pointer;font-weight:600}
+.btn:hover{background:#2a5298}
+.btn-danger{background:#dc2626}
+.btn-danger:hover{background:#b91c1c}
+.log-container{background:#fff;border-radius:10px;border:1px solid #e5e7eb;overflow:hidden}
+.log-header{display:grid;grid-template-columns:160px 120px 120px 80px 1fr;gap:8px;padding:10px 14px;background:#f9fafb;font-size:11px;font-weight:700;color:#374151;border-bottom:1px solid #e5e7eb}
+.log-entries{max-height:70vh;overflow-y:auto}
+.log-entry{display:grid;grid-template-columns:160px 120px 120px 80px 1fr;gap:8px;padding:8px 14px;font-size:11px;border-bottom:1px solid #f3f4f6;align-items:center;transition:background .15s}
+.log-entry:hover{background:#f0f4ff}
+.log-entry:nth-child(even){background:#fafbfc}
+.log-entry .ts{font-family:monospace;font-size:10px;color:#6b7280}
+.log-entry .user{font-weight:600;color:#1a3a5c}
+.log-entry .evt{display:inline-block;padding:1px 8px;border-radius:10px;font-size:10px;font-weight:600}
+.evt-LOGIN_OK{background:#d1fae5;color:#065f46}
+.evt-LOGIN_FAIL{background:#fee2e2;color:#991b1b}
+.evt-LOGOUT{background:#e5e7eb;color:#374151}
+.evt-FILE_UPLOAD{background:#dbeafe;color:#1e40af}
+.empty{text-align:center;padding:40px;color:#9ca3af;font-size:13px}
+@media(max-width:700px){.log-header,.log-entry{grid-template-columns:1fr;gap:2px;padding:8px}.log-header{display:none}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div style="display:flex;align-items:center;gap:10px">
+    <img src="https://www.moi.gov.jo/ebv4.0/root_storage/en/eb_homepage/logoen.png" alt="وزارة الداخلية" class="header-logo" onerror="this.style.display='none'">
+    <h1>📋 سجل التدقيق <span>| Audit Log</span></h1>
+  </div>
+  <div class="nav-links">
+    <a href="/">🏠 الرئيسية</a>
+    <a href="/index.html">📊 لوحة المحافظات</a>
+  </div>
+</div>
+
+<div class="stats">
+  <div class="stat-card"><div class="num" id="totalCount">0</div><div class="lbl">إجمالي الأحداث</div></div>
+  <div class="stat-card"><div class="num" id="loginOkCount">0</div><div class="lbl">دخول ناجح</div></div>
+  <div class="stat-card"><div class="num" id="loginFailCount">0</div><div class="lbl">محاولات فاشلة</div></div>
+  <div class="stat-card"><div class="num" id="uploadCount">0</div><div class="lbl">ملفات مرفوعة</div></div>
+</div>
+
+<div class="filters">
+  <input type="text" id="searchInput" placeholder="🔍 بحث (اسم مستخدم، محافظة، ملف...)" oninput="renderLog()">
+  <select id="eventFilter" onchange="renderLog()">
+    <option value="">كل الأحداث</option>
+    <option value="LOGIN_OK">دخول ناجح</option>
+    <option value="LOGIN_FAIL">محاولة فاشلة</option>
+    <option value="LOGOUT">خروج</option>
+    <option value="FILE_UPLOAD">رفع ملف</option>
+  </select>
+  <button class="btn" onclick="refreshLog()">🔄 تحديث</button>
+  <button class="btn btn-danger" onclick="clearLog()">🗑️ مسح السجل</button>
+</div>
+
+<div class="log-container">
+  <div class="log-header">
+    <span>التاريخ والوقت</span><span>المستخدم</span><span>الحدث</span><span>IP</span><span>التفاصيل</span>
+  </div>
+  <div class="log-entries" id="logEntries">
+    <div class="empty">جاري التحميل...</div>
+  </div>
+</div>
+
+<script>
+let allEntries = [];
+
+function formatEvent(evt) {
+  const map = {'LOGIN_OK':'دخول ناجح','LOGIN_FAIL':'محاولة فاشلة','LOGOUT':'خروج','FILE_UPLOAD':'رفع ملف'};
+  return map[evt] || evt;
+}
+
+async function refreshLog() {
+  const entriesDiv = document.getElementById('logEntries');
+  entriesDiv.innerHTML = '<div class="empty">جاري التحميل...</div>';
+  try {
+    const resp = await fetch('/api/audit-log', {
+      headers: {'Authorization': 'Bearer ' + localStorage.getItem('session_token')}
+    });
+    if (resp.status === 403) {
+      entriesDiv.innerHTML = '<div class="empty">⛔ غير مصرح — صلاحية مدير النظام فقط</div>';
+      return;
+    }
+    const data = await resp.json();
+    allEntries = data.entries || [];
+    renderLog();
+  } catch(e) {
+    entriesDiv.innerHTML = '<div class="empty">❌ تعذر الاتصال بالخادم</div>';
+  }
+}
+
+function renderLog() {
+  const search = document.getElementById('searchInput').value.trim().toLowerCase();
+  const filter = document.getElementById('eventFilter').value;
+  let filtered = allEntries;
+  if (filter) filtered = filtered.filter(e => e.includes('[' + filter + ']'));
+  if (search) filtered = filtered.filter(e => e.toLowerCase().includes(search));
+  
+  // Stats
+  document.getElementById('totalCount').textContent = allEntries.length;
+  document.getElementById('loginOkCount').textContent = allEntries.filter(e => e.includes('[LOGIN_OK]')).length;
+  document.getElementById('loginFailCount').textContent = allEntries.filter(e => e.includes('[LOGIN_FAIL]')).length;
+  document.getElementById('uploadCount').textContent = allEntries.filter(e => e.includes('[FILE_UPLOAD]')).length;
+  
+  const entriesDiv = document.getElementById('logEntries');
+  if (filtered.length === 0) {
+    entriesDiv.innerHTML = '<div class="empty">لا توجد أحداث مطابقة</div>';
+    return;
+  }
+  entriesDiv.innerHTML = filtered.map(line => {
+    const parts = line.match(/\[([^\]]+)\]/g);
+    if (!parts || parts.length < 4) return '';
+    const ts = parts[0].replace(/[\[\]]/g,'');
+    const ip = parts[1].replace(/[\[\]]/g,'');
+    const user = parts[2].replace(/[\[\]]/g,'');
+    const evt = parts[3].replace(/[\[\]]/g,'');
+    const detailStart = line.indexOf(']', line.indexOf(']', line.indexOf(']', line.indexOf(']')+1)+1)+1)+1;
+    const detail = line.slice(detailStart).trim();
+    return `<div class="log-entry">
+      <span class="ts">${ts}</span>
+      <span class="user">${user}</span>
+      <span><span class="evt evt-${evt}">${formatEvent(evt)}</span></span>
+      <span style="font-family:monospace;font-size:10px;color:#6b7280">${ip}</span>
+      <span style="color:#374151">${detail}</span>
+    </div>`;
+  }).join('');
+}
+
+async function clearLog() {
+  if (!confirm('هل أنت متأكد من مسح سجل التدقيق بالكامل؟')) return;
+  try {
+    await fetch('/api/audit-log', {
+      method: 'DELETE',
+      headers: {'Authorization': 'Bearer ' + localStorage.getItem('session_token')}
+    });
+    refreshLog();
+  } catch(e) {
+    alert('فشل مسح السجل');
+  }
+}
+
+refreshLog();
+</script>
+</body>
+</html>

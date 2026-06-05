@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>تسجيل الدخول — نظام التحليل التنموي للمحافظات الأردنية</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',Tahoma,Arial,sans-serif;background:linear-gradient(160deg,#0d2137,#1a3a5c 60%,#1e4976);min-height:100vh;display:flex;align-items:center;justify-content:center;direction:rtl}
+.login-wrap{display:flex;background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.35);max-width:920px;width:92%;min-height:520px;animation:fadeUp .6s ease-out}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.login-brand{background:linear-gradient(135deg,#0d2137,#1a3a5c);padding:48px 36px;display:flex;flex-direction:column;justify-content:center;flex:1;color:#fff;position:relative}
+.login-brand::after{content:"";position:absolute;bottom:0;right:0;width:120px;height:120px;border-radius:50%;background:rgba(200,168,75,.08);transform:translate(30%,30%)}
+.login-logo{width:64px;height:64px;border-radius:16px;background:linear-gradient(135deg,#c8a84b,#e8c96b);display:flex;align-items:center;justify-content:center;font-size:28px;margin-bottom:20px;box-shadow:0 4px 16px rgba(200,168,75,.3)}
+.login-brand h1{font-size:22px;font-weight:800;margin-bottom:6px}
+.login-brand .gold{color:#c8a84b}
+.login-brand p{font-size:12px;opacity:.7;line-height:1.7;margin-bottom:20px}
+.login-brand .badge{display:inline-block;background:rgba(200,168,75,.15);border:1px solid rgba(200,168,75,.3);padding:4px 14px;border-radius:20px;font-size:10px;color:#c8a84b;align-self:flex-start}
+.login-form{padding:48px 40px;flex:1;display:flex;flex-direction:column;justify-content:center}
+.login-form h2{font-size:20px;font-weight:800;color:#1a3a5c;margin-bottom:4px}
+.login-form .sub{font-size:12px;color:#9ca3af;margin-bottom:28px}
+.fld{margin-bottom:18px}
+.fld label{display:block;font-size:11px;font-weight:600;color:#374151;margin-bottom:5px}
+.fld input{width:100%;padding:11px 14px;border:2px solid #e5e7eb;border-radius:10px;font-size:13px;outline:none;transition:all .2s;font-family:inherit}
+.fld input:focus{border-color:#1a3a5c;box-shadow:0 0 0 3px rgba(26,58,92,.1)}
+.fld .input-icon{position:relative}
+.fld .input-icon input{padding-right:38px}
+.fld .input-icon .icon{position:absolute;right:12px;top:50%;transform:translateY(-50%);color:#9ca3af;font-size:16px}
+.btn-login{width:100%;padding:12px;background:linear-gradient(135deg,#1a3a5c,#2a5298);color:#fff;border:none;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;transition:all .2s;margin-top:6px}
+.btn-login:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(26,58,92,.3)}
+.btn-login:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.err-msg{color:#dc2626;font-size:11px;margin-top:8px;display:none;background:#fef2f2;padding:8px 12px;border-radius:6px;border-right:3px solid #dc2626}
+.footer-text{font-size:10px;color:#9ca3af;text-align:center;margin-top:20px}
+.loading{display:none;align-items:center;gap:8px;justify-content:center;margin-top:10px}
+.spinner{width:18px;height:18px;border:3px solid #e5e7eb;border-top-color:#1a3a5c;border-radius:50%;animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media(max-width:700px){.login-wrap{flex-direction:column;min-height:auto}.login-brand{padding:32px 24px}.login-form{padding:32px 24px}}
+</style>
+</head>
+<body>
+<div class="login-wrap">
+  <div class="login-brand">
+    <div class="badge">🇯🇴 المملكة الأردنية الهاشمية</div>
+    <div style="margin-top:20px"><img src="https://www.moi.gov.jo/ebv4.0/root_storage/en/eb_homepage/logoen.png" alt="وزارة الداخلية" style="height:56px;width:auto;filter:brightness(1.2)"></div>
+    <h1>نظام التحليل التنموي<br><span class="gold">للمحافظات الأردنية</span></h1>
+    <p>Developmental Analysis System (DAS) — تحليل الفجوات، بناء الخطط، متابعة المشاريع</p>
+    <div style="margin-top:auto;font-size:11px;opacity:.5">وزارة الداخلية — مديرية التنمية المحلية</div>
+  </div>
+  <div class="login-form">
+    <h2>تسجيل الدخول</h2>
+    <div class="sub">الوصول مخصص لموظفي وزارة الداخلية</div>
+    <div class="fld">
+      <label>اسم المستخدم</label>
+      <div class="input-icon">
+        <span class="icon">👤</span>
+        <input type="text" id="username" placeholder="أدخل اسم المستخدم" autocomplete="username">
+      </div>
+    </div>
+    <div class="fld">
+      <label>كلمة المرور</label>
+      <div class="input-icon">
+        <span class="icon">🔒</span>
+        <input type="password" id="password" placeholder="أدخل كلمة المرور" autocomplete="current-password">
+      </div>
+    </div>
+    <button class="btn-login" id="loginBtn" onclick="doLogin()">تسجيل الدخول</button>
+    <div class="err-msg" id="errMsg"></div>
+    <div class="loading" id="loading"><div class="spinner"></div><span style="font-size:12px;color:#6b7280">جاري التحقق...</span></div>
+  </div>
+</div>
+<script>
+async function doLogin() {
+  const u = document.getElementById('username').value.trim();
+  const p = document.getElementById('password').value;
+  const btn = document.getElementById('loginBtn');
+  const err = document.getElementById('errMsg');
+  const ld = document.getElementById('loading');
+  if (!u || !p) { showErr('الرجاء إدخال اسم المستخدم وكلمة المرور'); return; }
+  btn.disabled = true; ld.style.display = 'flex'; err.style.display = 'none';
+  try {
+    const resp = await fetch('/api/login', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({username: u, password: p})
+    });
+    const data = await resp.json();
+    if (resp.ok && data.token) {
+      localStorage.setItem('session_token', data.token);
+      localStorage.setItem('user_name', data.name || u);
+      localStorage.setItem('user_role', data.role || 'user');
+      localStorage.setItem('user_gov', data.gov || '');
+      document.cookie = 'session_token=' + data.token + '; path=/';
+      window.location.href = '/';
+    } else {
+      showErr(data.message || 'اسم المستخدم أو كلمة المرور غير صحيحة');
+    }
+  } catch(e) {
+    showErr('تعذر الاتصال بالخادم. تأكد من تشغيل الخادم.');
+  }
+  btn.disabled = false; ld.style.display = 'none';
+}
+function showErr(m) {
+  const err = document.getElementById('errMsg');
+  err.textContent = m; err.style.display = 'block';
+}
+document.getElementById('username').addEventListener('keydown', e => { if (e.key === 'Enter') doLogin(); });
+document.getElementById('password').addEventListener('keydown', e => { if (e.key === 'Enter') doLogin(); });
+// Detect if backend is unavailable (Netlify/static mode) → show demo note
+fetch('/api/me').catch(function(){
+  var demoNote = document.createElement('div');
+  demoNote.style.cssText = 'margin-top:16px;padding:10px 14px;background:#fef3c7;border-radius:8px;border-right:3px solid #d97706;font-size:11px;line-height:1.7';
+  demoNote.innerHTML = '⚠️ الخادم غير متصل حالياً. يمكنك <a href="index.html?demo=true" style="color:#1a3a5c;font-weight:700">عرض النتائج الأولية</a> أو <a href="/" style="color:#1a3a5c;font-weight:700">الصفحة التعريفية</a>.';
+  document.querySelector('.login-form').appendChild(demoNote);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>المستشار التنموي — نظام التحليل التنموي للمحافظات الأردنية</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',Tahoma,Arial,sans-serif;background:#f0f4f8;min-height:100vh;direction:rtl}
+nav{background:linear-gradient(135deg,#0d2137,#1a3a5c);padding:12px 24px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 12px rgba(0,0,0,.15)}
+.nav-title{color:#fff;font-size:16px;font-weight:700;display:flex;align-items:center;gap:8px}
+.nav-title span{color:#c8a84b}
+.nav-links{display:flex;gap:8px}
+.nav-links a{color:rgba(255,255,255,.8);text-decoration:none;padding:6px 14px;border-radius:8px;font-size:13px;transition:all .2s}
+.nav-links a:hover{background:rgba(255,255,255,.1);color:#fff}
+.nav-links a.active{background:rgba(200,168,75,.2);color:#c8a84b}
+.container{max-width:800px;margin:20px auto;padding:0 16px}
+.chat-header{background:#fff;border-radius:16px;padding:20px 24px;margin-bottom:16px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.chat-header h1{font-size:20px;color:#1a3a5c;margin-bottom:4px}
+.chat-header p{font-size:12px;color:#9ca3af}
+.gov-badge{display:inline-block;background:rgba(26,58,92,.08);padding:3px 12px;border-radius:12px;font-size:11px;color:#1a3a5c;margin-top:6px}
+.chat-box{background:#fff;border-radius:16px;box-shadow:0 2px 8px rgba(0,0,0,.06);overflow:hidden;display:flex;flex-direction:column;height:60vh;min-height:400px}
+.messages{flex:1;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:12px}
+.msg{max-width:85%;padding:12px 16px;border-radius:12px;font-size:14px;line-height:1.7;animation:fadeUp .3s ease-out}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.msg.user{background:#e8f0fe;color:#1a3a5c;align-self:flex-end;border-bottom-left-radius:4px}
+.msg.bot{background:#f8f9fa;color:#374151;align-self:flex-start;border-bottom-right-radius:4px;white-space:pre-wrap}
+.msg.bot strong{color:#1a3a5c}
+.msg-time{font-size:10px;color:#9ca3af;margin-top:4px}
+.input-area{border-top:1px solid #e5e7eb;padding:16px 20px;background:#fff;display:flex;gap:10px}
+.input-area textarea{flex:1;padding:10px 14px;border:2px solid #e5e7eb;border-radius:10px;font-size:13px;outline:none;resize:none;font-family:inherit;min-height:44px;max-height:120px;transition:border-color .2s}
+.input-area textarea:focus{border-color:#1a3a5c}
+.input-area button{padding:10px 20px;background:linear-gradient(135deg,#1a3a5c,#2a5298);color:#fff;border:none;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;transition:all .2s;white-space:nowrap}
+.input-area button:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(26,58,92,.25)}
+.input-area button:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.typing{display:flex;gap:4px;padding:12px 16px;align-items:center}
+.typing span{width:7px;height:7px;background:#c8a84b;border-radius:50%;animation:bounce 1.3s ease-in-out infinite}
+.typing span:nth-child(2){animation-delay:.15s}
+.typing span:nth-child(3){animation-delay:.3s}
+@keyframes bounce{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-6px)}}
+.empty-chat{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;color:#9ca3af;gap:8px}
+.empty-chat .icon{font-size:48px;opacity:.3}
+.empty-chat p{font-size:13px}
+.suggestions{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:12px}
+.suggestions button{background:rgba(26,58,92,.06);color:#1a3a5c;border:1px solid rgba(26,58,92,.12);padding:6px 14px;border-radius:20px;font-size:11px;cursor:pointer;transition:all .2s;font-family:inherit}
+.suggestions button:hover{background:rgba(26,58,92,.12);border-color:rgba(26,58,92,.2)}
+.error-msg{background:#fef2f2;color:#dc2626;padding:8px 12px;border-radius:8px;font-size:12px;text-align:center;display:none}
+@media(max-width:600px){.chat-box{height:70vh}.msg{max-width:92%}}
+</style>
+</head>
+<body>
+<nav>
+  <div style="display:flex;align-items:center;gap:10px">
+    <img src="https://www.moi.gov.jo/ebv4.0/root_storage/en/eb_homepage/logoen.png" alt="وزارة الداخلية" style="height:32px;width:auto" onerror="this.style.display='none'">
+    <div class="nav-title">المستشار <span>التنموي</span></div>
+  </div>
+  <div class="nav-links">
+    <a href="/">🏠 الرئيسية</a>
+    <a href="/index.html">📊 لوحة التحليل</a>
+    <a href="/upload.html">📁 رفع ملف</a>
+  </div>
+</nav>
+<div class="container">
+  <div class="chat-header">
+    <h1>💬 المستشار التنموي الذكي</h1>
+    <p>اسأل عن أي موضوع تنموي: البطالة، التعليم، الصحة، البنية التحتية، الفقر، وغيرها</p>
+    <div id="govBadge" class="gov-badge" style="display:none"></div>
+    <div style="margin-top:10px;display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+      <select id="govSelector" onchange="onGovChange()" style="padding:6px 10px;border:2px solid #e5e7eb;border-radius:8px;font-size:12px;font-family:inherit;background:#fff;color:#1a3a5c;outline:none;cursor:pointer;min-width:140px">
+        <option value="">-- اختر محافظة --</option>
+        <option value="العاصمة">العاصمة</option>
+        <option value="البلقاء">البلقاء</option>
+        <option value="الزرقاء">الزرقاء</option>
+        <option value="مأدبا">مأدبا</option>
+        <option value="إربد">إربد</option>
+        <option value="المفرق">المفرق</option>
+        <option value="جرش">جرش</option>
+        <option value="عجلون">عجلون</option>
+        <option value="الكرك">الكرك</option>
+        <option value="الطفيلة">الطفيلة</option>
+        <option value="معان">معان</option>
+        <option value="العقبة">العقبة</option>
+      </select>
+      <button onclick="newChat()" style="background:none;border:1px solid #e5e7eb;border-radius:6px;padding:4px 12px;font-size:11px;cursor:pointer;color:#6b7280;font-family:inherit">➕ محادثة جديدة</button>
+    </div>
+  </div>
+  <div class="error-msg" id="errMsg"></div>
+  <div class="chat-box">
+    <div class="messages" id="messages">
+      <div class="empty-chat" id="emptyChat">
+        <div class="icon">💬</div>
+        <p>اكتب سؤالك التنموي هنا...</p>
+        <div class="suggestions">
+          <button onclick="ask('ما هي أبرز التحديات التنموية في محافظتي؟')">التحديات التنموية</button>
+          <button onclick="ask('حلل وضع البطالة في محافظتي')">وضع البطالة</button>
+          <button onclick="ask('ما هي الأولويات التنموية لمحافظتي؟')">الأولويات التنموية</button>
+          <button onclick="ask('كيف يمكن تحسين قطاع التعليم في محافظتي؟')">تحسين التعليم</button>
+        </div>
+      </div>
+    </div>
+    <div class="input-area">
+      <textarea id="input" placeholder="اكتب سؤالك هنا..." rows="1" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();send()}"></textarea>
+      <button id="sendBtn" onclick="send()">إرسال</button>
+    </div>
+  </div>
+</div>
+<script>
+let messages = [];
+
+function getSelectedGov() {
+  const sel = document.getElementById('govSelector');
+  return sel ? sel.value : '';
+}
+
+document.addEventListener('DOMContentLoaded', async () => {
+  // Restore previously selected governorate
+  const saved = localStorage.getItem('chat_gov');
+  if (saved) {
+    document.getElementById('govSelector').value = saved;
+  } else {
+    const userGov = localStorage.getItem('user_gov');
+    if (userGov) {
+      document.getElementById('govSelector').value = userGov;
+    }
+  }
+  updateGovBadge();
+  if (!localStorage.getItem('session_token')) {
+    document.getElementById('errMsg').textContent = 'يرجى تسجيل الدخول أولاً';
+    document.getElementById('errMsg').style.display = 'block';
+    document.getElementById('sendBtn').disabled = true;
+  }
+  // Check AI availability
+  try {
+    const r = await fetch('/api/ai-status');
+    const s = await r.json();
+    if (!s.available) {
+      document.getElementById('errMsg').textContent = '🧠 المساعد الذكي غير متاح حالياً. يرجى تشغيل Ollama لتفعيل هذه الخدمة.';
+      document.getElementById('errMsg').style.display = 'block';
+      document.getElementById('sendBtn').disabled = true;
+      document.getElementById('sendBtn').title = 'الخدمة غير متاحة حالياً';
+    }
+  } catch(e) {
+    document.getElementById('errMsg').textContent = 'تعذر التحقق من حالة المساعد الذكي.';
+    document.getElementById('errMsg').style.display = 'block';
+  }
+});
+
+function onGovChange() {
+  const gov = getSelectedGov();
+  localStorage.setItem('chat_gov', gov);
+  updateGovBadge();
+}
+
+function updateGovBadge() {
+  const gov = getSelectedGov();
+  const badge = document.getElementById('govBadge');
+  if (gov) {
+    badge.textContent = 'محافظة: ' + gov;
+    badge.style.display = 'inline-block';
+  } else {
+    badge.style.display = 'none';
+  }
+}
+
+async function send() {
+  const input = document.getElementById('input');
+  const msg = input.value.trim();
+  if (!msg) return;
+  input.value = '';
+  await ask(msg);
+}
+
+async function ask(msg) {
+  const token = localStorage.getItem('session_token');
+  if (!token) { showErr('يرجى تسجيل الدخول أولاً'); return; }
+  hideErr();
+  document.getElementById('emptyChat').style.display = 'none';
+  addMsg(msg, 'user');
+  messages.push({role: 'user', content: msg});
+  document.getElementById('sendBtn').disabled = true;
+  showTyping();
+  try {
+    const resp = await fetch('/api/chat', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token},
+      body: JSON.stringify({message: msg, governorate: getSelectedGov(), history: messages})
+    });
+    const data = await resp.json();
+    hideTyping();
+    if (resp.ok) {
+      const reply = data.response || 'لم يتم الحصول على رد';
+      addMsg(reply, 'bot');
+      messages.push({role: 'assistant', content: reply});
+    } else {
+      addMsg('خطأ في الاتصال. تأكد من أن الخادم قيد التشغيل.', 'bot');
+    }
+  } catch(e) {
+    hideTyping();
+    addMsg('خطأ في الاتصال بالخادم.', 'bot');
+  }
+  document.getElementById('sendBtn').disabled = false;
+}
+
+function addMsg(text, role) {
+  const div = document.createElement('div');
+  div.className = 'msg ' + role;
+  div.textContent = text;
+  const time = document.createElement('div');
+  time.className = 'msg-time';
+  const now = new Date();
+  time.textContent = now.getHours().toString().padStart(2,'0') + ':' + now.getMinutes().toString().padStart(2,'0');
+  div.appendChild(time);
+  document.getElementById('messages').appendChild(div);
+  scrollToBottom();
+}
+
+function showTyping() {
+  const div = document.createElement('div');
+  div.className = 'msg bot typing';
+  div.id = 'typingIndicator';
+  div.innerHTML = '<span></span><span></span><span></span>';
+  document.getElementById('messages').appendChild(div);
+  scrollToBottom();
+}
+
+function hideTyping() {
+  const el = document.getElementById('typingIndicator');
+  if (el) el.remove();
+}
+
+function scrollToBottom() {
+  const msgs = document.getElementById('messages');
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+function showErr(m) {
+  const el = document.getElementById('errMsg');
+  el.textContent = m; el.style.display = 'block';
+}
+function hideErr() { document.getElementById('errMsg').style.display = 'none'; }
+function newChat() {
+  messages = [];
+  document.getElementById('messages').innerHTML = '<div class="empty-chat" id="emptyChat"><div class="icon">💬</div><p>اكتب سؤالك التنموي هنا...</p><div class="suggestions"><button onclick="ask(\'ما هي أبرز التحديات التنموية في محافظتي؟\')">التحديات التنموية</button><button onclick="ask(\'حلل وضع البطالة في محافظتي\')">وضع البطالة</button><button onclick="ask(\'ما هي الأولويات التنموية لمحافظتي؟\')">الأولويات التنموية</button><button onclick="ask(\'كيف يمكن تحسين قطاع التعليم في محافظتي؟\')">تحسين التعليم</button></div></div>';
+}
+</script>
+</body>
+</html>

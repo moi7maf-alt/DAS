@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>الدليل الإجرائي - نظام لوحة التخطيط التنموي</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap');
+  :root{--p:#1a3a5c;--s:#c8a84b;--g:#2e7d32;--r:#c62828;--light:#f5f7fa;--br:#e5e7eb}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Cairo',Tahoma,Arial,sans-serif;background:#fff;color:#1a1a2e;direction:rtl;font-size:14px;line-height:1.8}
+
+  /* COVER PAGE */
+  .cover{background:linear-gradient(135deg,#0d2137,#1a3a5c,#0d2137);color:#fff;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:60px 40px;page-break-after:always}
+  .cover-logo{font-size:80px;margin-bottom:24px}
+  .cover-ministry{font-size:18px;opacity:.85;margin-bottom:8px;letter-spacing:1px}
+  .cover-title{font-size:36px;font-weight:800;margin-bottom:12px;color:#c8a84b}
+  .cover-subtitle{font-size:20px;font-weight:600;margin-bottom:32px;opacity:.9}
+  .cover-line{width:120px;height:3px;background:#c8a84b;margin:0 auto 32px}
+  .cover-meta{font-size:14px;opacity:.75;line-height:2}
+  .cover-version{display:inline-block;margin-top:24px;padding:8px 24px;border:2px solid #c8a84b;border-radius:20px;font-size:13px;color:#c8a84b}
+
+  /* LAYOUT */
+  .page{max-width:900px;margin:0 auto;padding:48px 40px}
+  @media print{.page{padding:20px 30px}.cover{min-height:auto;padding:40px}}
+
+  /* TOC */
+  .toc{background:var(--light);border-radius:12px;padding:32px;margin-bottom:40px;border:1px solid var(--br)}
+  .toc-title{font-size:20px;font-weight:800;color:var(--p);margin-bottom:20px;padding-bottom:10px;border-bottom:3px solid var(--s)}
+  .toc-item{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px dashed var(--br);font-size:13px}
+  .toc-item:last-child{border-bottom:none}
+  .toc-num{font-weight:700;color:var(--p);min-width:30px}
+  .toc-name{flex:1;padding:0 12px}
+  .toc-page{color:#6b7280;font-size:12px}
+
+  /* SECTIONS */
+  .section{margin-bottom:48px;page-break-inside:avoid}
+  .section-header{background:linear-gradient(135deg,var(--p),#2a5298);color:#fff;border-radius:10px;padding:16px 24px;margin-bottom:24px;display:flex;align-items:center;gap:12px}
+  .section-num{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;flex-shrink:0}
+  .section-title{font-size:18px;font-weight:700}
+
+  /* SUBSECTIONS */
+  .subsection{margin-bottom:28px}
+  .subsection-title{font-size:15px;font-weight:700;color:var(--p);margin-bottom:12px;padding-right:12px;border-right:4px solid var(--s);display:flex;align-items:center;gap:8px}
+
+  /* STEPS */
+  .steps{list-style:none;counter-reset:step}
+  .steps li{counter-increment:step;display:flex;gap:14px;margin-bottom:14px;padding:14px 16px;background:var(--light);border-radius:8px;border:1px solid var(--br)}
+  .steps li::before{content:counter(step);width:28px;height:28px;border-radius:50%;background:var(--p);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;margin-top:2px}
+  .step-content{flex:1}
+  .step-title{font-weight:700;color:var(--p);margin-bottom:4px}
+  .step-desc{font-size:13px;color:#374151;line-height:1.7}
+
+  /* CODE BLOCKS */
+  .code-block{background:#1e293b;color:#e2e8f0;border-radius:8px;padding:16px 20px;font-family:'Courier New',monospace;font-size:13px;direction:ltr;text-align:left;margin:12px 0;overflow-x:auto;line-height:1.6}
+  .code-block .comment{color:#64748b}
+  .code-block .cmd{color:#86efac}
+  .code-block .path{color:#fbbf24}
+  .code-block .flag{color:#93c5fd}
+
+  /* TABLES */
+  .data-table{width:100%;border-collapse:collapse;font-size:13px;margin:12px 0}
+  .data-table th{background:var(--p);color:#fff;padding:10px 14px;text-align:right;font-weight:600}
+  .data-table td{padding:9px 14px;border-bottom:1px solid var(--br)}
+  .data-table tr:nth-child(even) td{background:#f8fafc}
+  .data-table tr:hover td{background:#f0f4ff}
+
+  /* ALERTS */
+  .alert{border-radius:8px;padding:14px 18px;margin:14px 0;display:flex;gap:12px;align-items:flex-start}
+  .alert-icon{font-size:18px;flex-shrink:0;margin-top:2px}
+  .alert-content{flex:1}
+  .alert-title{font-weight:700;margin-bottom:4px;font-size:13px}
+  .alert-text{font-size:13px;line-height:1.7}
+  .alert-info{background:#eff6ff;border:1px solid #bfdbfe;color:#1e40af}
+  .alert-warn{background:#fffbeb;border:1px solid #fde68a;color:#92400e}
+  .alert-success{background:#f0fdf4;border:1px solid #bbf7d0;color:#166534}
+  .alert-danger{background:#fef2f2;border:1px solid #fecaca;color:#991b1b}
+
+  /* FILE TREE */
+  .file-tree{background:#f8fafc;border:1px solid var(--br);border-radius:8px;padding:16px 20px;font-family:'Courier New',monospace;font-size:13px;direction:ltr;text-align:left;line-height:2}
+  .ft-folder{color:#1a3a5c;font-weight:700}
+  .ft-file{color:#374151}
+  .ft-desc{color:#6b7280;font-style:italic}
+
+  /* CHECKLIST */
+  .checklist{list-style:none}
+  .checklist li{padding:8px 12px;margin-bottom:6px;background:var(--light);border-radius:6px;font-size:13px;display:flex;align-items:center;gap:10px;border:1px solid var(--br)}
+  .check-box{width:20px;height:20px;border:2px solid var(--p);border-radius:4px;flex-shrink:0}
+
+  /* SCHEDULE */
+  .schedule{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;margin:14px 0}
+  .sch-card{background:var(--light);border-radius:8px;padding:14px;border:1px solid var(--br);border-top:4px solid var(--s)}
+  .sch-period{font-size:12px;font-weight:700;color:var(--s);margin-bottom:6px}
+  .sch-task{font-size:13px;color:var(--p)}
+
+  /* FOOTER */
+  .doc-footer{background:var(--light);border-top:3px solid var(--s);padding:20px 40px;text-align:center;font-size:12px;color:#6b7280;margin-top:60px}
+
+  /* PRINT */
+  @media print{
+    .section{page-break-inside:avoid}
+    .cover{page-break-after:always}
+    body{font-size:12px}
+    .code-block{font-size:11px}
+  }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="cover-logo">🇯🇴</div>
+  <div class="cover-ministry">المملكة الأردنية الهاشمية</div>
+  <div class="cover-ministry">وزارة الداخلية الأردنية — مديرية التنمية المحلية</div>
+  <div class="cover-line"></div>
+  <div class="cover-title">الدليل الإجرائي التقني</div>
+  <div class="cover-subtitle">نظام لوحة التخطيط التنموي الاستراتيجي<br>للمحافظات الأردنية الاثنتي عشرة</div>
+  <div class="cover-line"></div>
+  <div class="cover-meta">
+    إعداد: وحدة تكنولوجيا المعلومات<br>
+    الإصدار: 1.0<br>
+    تاريخ الإصدار: مايو 2026<br>
+    السرية: للاستخدام الداخلي
+  </div>
+  <div class="cover-version">الإصدار 1.0 — 2026</div>
+</div>
+<div class="page">
+
+<div class="toc">
+  <div class="toc-title">📋 فهرس المحتويات</div>
+  <div class="toc-item"><span class="toc-num">1</span><span class="toc-name">نظرة عامة على النظام</span><span class="toc-page">القسم 1</span></div>
+  <div class="toc-item"><span class="toc-num">2</span><span class="toc-name">هيكل الملفات والمجلدات</span><span class="toc-page">القسم 2</span></div>
+  <div class="toc-item"><span class="toc-num">3</span><span class="toc-name">متطلبات التشغيل والبيئة التقنية</span><span class="toc-page">القسم 3</span></div>
+  <div class="toc-item"><span class="toc-num">4</span><span class="toc-name">إجراءات النشر على السيرفر</span><span class="toc-page">القسم 4</span></div>
+  <div class="toc-item"><span class="toc-num">5</span><span class="toc-name">إجراءات تحديث البيانات</span><span class="toc-page">القسم 5</span></div>
+  <div class="toc-item"><span class="toc-num">6</span><span class="toc-name">جدول التحديثات الدورية</span><span class="toc-page">القسم 6</span></div>
+  <div class="toc-item"><span class="toc-num">7</span><span class="toc-name">استكشاف الأخطاء وإصلاحها</span><span class="toc-page">القسم 7</span></div>
+  <div class="toc-item"><span class="toc-num">8</span><span class="toc-name">النسخ الاحتياطي والاسترداد</span><span class="toc-page">القسم 8</span></div>
+  <div class="toc-item"><span class="toc-num">9</span><span class="toc-name">قائمة التحقق للفني المسؤول</span><span class="toc-page">القسم 9</span></div>
+<div class="toc-item"><span class="toc-num">10</span><span class="toc-name">معلومات التواصل والدعم</span><span class="toc-page">القسم 10</span></div>
+   <div class="toc-item"><span class="toc-num">11</span><span class="toc-name">أمان البيانات والحماية السيبرانية</span><span class="toc-page">القسم 11</span></div>
+   <div class="toc-item"><span class="toc-num">12</span><span class="toc-name">دليل النشر السريع (ملخص)</span><span class="toc-page">القسم 12</span></div>
+ </div>
+ 
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">1</div>
+    <div class="section-title">نظرة عامة على النظام</div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">📌 ما هو النظام؟</div>
+    <p>نظام لوحة التخطيط التنموي هو تطبيق ويب تحليلي يعرض المؤشرات التنموية لـ 12 محافظة أردنية عبر 8 قطاعات، ويولّد تقارير استراتيجية تفاعلية قابلة للطباعة.</p>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">⚙️ طبيعة النظام التقنية</div>
+    <div class="alert alert-success">
+      <div class="alert-icon">✅</div>
+      <div class="alert-content">
+        <div class="alert-title">نظام Static بالكامل — لا يحتاج قاعدة بيانات ولا خادم تطبيقات</div>
+        <div class="alert-text">النظام مبني من ملفات HTML + JSON + JavaScript فقط. يعمل على أي خادم ويب بسيط (IIS, Apache, Nginx) دون أي إعدادات معقدة.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">🔄 آلية عمل النظام</div>
+    <table class="data-table">
+      <tr><th>المرحلة</th><th>الوصف</th><th>الملف المسؤول</th></tr>
+      <tr><td>1. مصدر البيانات</td><td>ملفات Excel في مجلد Data/input/ و Data/trend/</td><td>13+ ملف .xlsx</td></tr>
+      <tr><td>2. معالجة البيانات</td><td>سكريبت Python يقرأ Excel ويحسب المؤشرات</td><td>src/generate_data.py</td></tr>
+      <tr><td>3. بيانات الموازنة</td><td>يحسب التوزيع الأمثل للموازنة</td><td>src/build_budget.py</td></tr>
+      <tr><td>4. البيانات التنبؤية</td><td>يحلل الاتجاهات ويتنبأ بالمؤشرات حتى 2028</td><td>src/build_predictive2.py</td></tr>
+      <tr><td>5. الهيكل الأساسي</td><td>يبني الهيكل الأساسي للوحة (4 تبويبات)</td><td>src/write_dashboard.py</td></tr>
+      <tr><td>6. حقن الموازنة</td><td>يضيف تبويب توجيه الموازنة</td><td>src/inject_budget.py</td></tr>
+      <tr><td>7. حقن الحلول</td><td>يضيف تبويب الحلول الذكية</td><td>src/inject_solutions.py</td></tr>
+      <tr><td>8. حقن التنبؤي</td><td>يضيف تبويب التحليل التنبؤي</td><td>src/inject_predictive.py</td></tr>
+      <tr><td>9. حقن التقرير</td><td>يضيف تبويب تقرير المحافظة بالذكاء الاصطناعي</td><td>src/inject_ai.py</td></tr>
+      <tr><td>10. الصفحة الرئيسية</td><td>يبني صفحة الهبوط</td><td>src/build_landing.py</td></tr>
+      <tr><td>11. الدليل التقني</td><td>يبني هذا الدليل</td><td>src/build_guide.py</td></tr>
+      <tr><td>12. العرض النهائي</td><td>ملف HTML يُفتح في المتصفح مباشرة</td><td>src/index.html</td></tr>
+    </table>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">📊 محتوى النظام</div>
+    <table class="data-table">
+      <tr><th>العنصر</th><th>العدد</th></tr>
+      <tr><td>المحافظات المشمولة</td><td>12 محافظة</td></tr>
+      <tr><td>القطاعات التنموية</td><td>8 قطاعات</td></tr>
+      <tr><td>المشاريع المقترحة</td><td>240 مشروع (20 لكل محافظة)</td></tr>
+      <tr><td>المؤشرات الإحصائية</td><td>+15 مؤشر خام لكل محافظة</td></tr>
+      <tr><td>مصادر البيانات</td><td>13 ملف Excel</td></tr>
+    </table>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">2</div>
+    <div class="section-title">هيكل الملفات والمجلدات</div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">🗂️ هيكل المشروع الكامل</div>
+    <div class="file-tree">
+<span class="ft-folder">JLD/</span>  <span class="ft-desc">← المجلد الرئيسي للمشروع</span>
+│
+├── <span class="ft-folder">Data/</span>
+│   ├── <span class="ft-folder">input/</span>  <span class="ft-desc">← ملفات Excel المصدر (لا تُنشر على السيرفر)</span>
+│   │   ├── <span class="ft-file">Agriculture2024.xlsx</span>
+│   │   ├── <span class="ft-file">Unemployment.xlsx</span>
+│   │   ├── <span class="ft-file">health.xlsx</span>
+│   │   ├── <span class="ft-file">education_data.xlsx</span>
+│   │   ├── <span class="ft-file">Water and Sanitation.xlsx</span>
+│   │   ├── <span class="ft-file">Tourism.xlsx</span>
+│   │   ├── <span class="ft-file">Road_Infrastructure_Length_by_Region_and_Category.xlsx</span>
+│   │   ├── <span class="ft-file">Governorate_Local_Budgets_Capital_2026.xlsx</span>
+│   │   ├── <span class="ft-file">Governorates_Master_Base.xlsx</span>
+│   │   ├── <span class="ft-file">Culture_2024.xlsx</span>
+│   │   ├── <span class="ft-file">Associations.xlsx</span>
+│   │   ├── <span class="ft-file">Jordan_Governorates_Competitive_Advantages_Matrix.xlsx</span>
+│   │   └── <span class="ft-file">Jordan_Tourism_Attraction_Matrix.xlsx</span>
+│   └── <span class="ft-folder">trend/</span>  <span class="ft-desc">← ملفات البيانات التاريخية للتحليل التنبؤي</span>
+│       ├── <span class="ft-file">Unemployment.xlsx</span>
+│       ├── <span class="ft-file">Basic_Education_Enrollment_Rates.xlsx</span>
+│       ├── <span class="ft-file">Secondary_Education_Enrollment_Rate.xlsx</span>
+│       └── <span class="ft-file">... (21 ملف)</span>
+│
+└── <span class="ft-folder">src/</span>  <span class="ft-desc">← هذا المجلد فقط يُنشر على السيرفر</span>
+    ├── <span class="ft-file">index.html</span>              <span class="ft-desc">← الواجهة الرئيسية (يُفتح في المتصفح)</span>
+    ├── <span class="ft-file">landing.html</span>            <span class="ft-desc">← صفحة الهبوط</span>
+    ├── <span class="ft-file">technical_guide.html</span>    <span class="ft-desc">← هذا الدليل</span>
+    ├── <span class="ft-file">data.json</span>               <span class="ft-desc">← بيانات المحافظات المحسوبة</span>
+    ├── <span class="ft-file">strategic_plans.json</span>    <span class="ft-desc">← الخطط الاستراتيجية والمشاريع</span>
+    ├── <span class="ft-file">budget_data.json</span>        <span class="ft-desc">← بيانات توزيع الموازنة</span>
+    ├── <span class="ft-file">predictive_data.json</span>    <span class="ft-desc">← البيانات التنبؤية</span>
+    ├── <span class="ft-file">run_all.py</span>              <span class="ft-desc">← سكريبت البناء الموحد (الأمر الوحيد)</span>
+    ├── <span class="ft-file">generate_data.py</span>        <span class="ft-desc">← معالجة البيانات</span>
+    ├── <span class="ft-file">build_budget.py</span>         <span class="ft-desc">← بناء بيانات الموازنة</span>
+    ├── <span class="ft-file">build_predictive2.py</span>    <span class="ft-desc">← بناء البيانات التنبؤية</span>
+    ├── <span class="ft-file">write_dashboard.py</span>      <span class="ft-desc">← بناء الهيكل الأساسي</span>
+    ├── <span class="ft-file">inject_budget.py</span>        <span class="ft-desc">← حقن تبويب الموازنة</span>
+    ├── <span class="ft-file">inject_solutions.py</span>     <span class="ft-desc">← حقن تبويب الحلول الذكية</span>
+    ├── <span class="ft-file">inject_predictive.py</span>    <span class="ft-desc">← حقن تبويب التحليل التنبؤي</span>
+    ├── <span class="ft-file">inject_ai.py</span>            <span class="ft-desc">← حقن تبويب تقرير المحافظة</span>
+    ├── <span class="ft-file">build_landing.py</span>        <span class="ft-desc">← بناء صفحة الهبوط</span>
+    └── <span class="ft-file">build_guide.py</span>          <span class="ft-desc">← بناء الدليل التقني</span>
+    </div>
+  </div>
+
+  <div class="alert alert-info">
+    <div class="alert-icon">ℹ️</div>
+    <div class="alert-content">
+      <div class="alert-title">ما الذي يُنشر على السيرفر؟</div>
+      <div class="alert-text">على السيرفر يكفي وجود هذه الملفات: <strong>index.html + landing.html + data.json + strategic_plans.json + budget_data.json + predictive_data.json</strong>. ملفات Python تبقى على جهاز العمل للتحديث.</div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">3</div>
+    <div class="section-title">متطلبات التشغيل والبيئة التقنية</div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">🖥️ متطلبات السيرفر (للنشر)</div>
+    <table class="data-table">
+      <tr><th>المتطلب</th><th>الحد الأدنى</th><th>ملاحظة</th></tr>
+      <tr><td>خادم الويب</td><td>IIS 7+ أو Apache 2.4+ أو Nginx 1.14+</td><td>أي منهم يكفي</td></tr>
+      <tr><td>نظام التشغيل</td><td>Windows Server 2012+ أو Linux</td><td>كلاهما مدعوم</td></tr>
+      <tr><td>المساحة التخزينية</td><td>10 MB</td><td>للملفات الثلاثة فقط</td></tr>
+      <tr><td>الذاكرة RAM</td><td>لا يوجد حد أدنى خاص</td><td>يعمل على أي سيرفر</td></tr>
+      <tr><td>اتصال الإنترنت</td><td>مطلوب للرسوم البيانية فقط</td><td>Chart.js من CDN</td></tr>
+    </table>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">💻 متطلبات جهاز العمل (لتحديث البيانات)</div>
+    <table class="data-table">
+      <tr><th>البرنامج</th><th>الإصدار</th><th>رابط التحميل</th></tr>
+      <tr><td>Python</td><td>3.9 أو أحدث</td><td>python.org/downloads</td></tr>
+      <tr><td>مكتبة pandas</td><td>أحدث إصدار</td><td>تُثبَّت تلقائياً</td></tr>
+      <tr><td>مكتبة openpyxl</td><td>أحدث إصدار</td><td>تُثبَّت تلقائياً</td></tr>
+      <tr><td>مكتبة numpy</td><td>أحدث إصدار</td><td>تُثبَّت تلقائياً</td></tr>
+      <tr><td>Microsoft Excel</td><td>2016 أو أحدث</td><td>لتحرير ملفات البيانات</td></tr>
+    </table>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">📦 تثبيت المكتبات المطلوبة (مرة واحدة فقط)</div>
+    <p>افتح موجه الأوامر (CMD) وشغّل الأمر التالي:</p>
+    <div class="code-block">
+<span class="comment"># تثبيت جميع المكتبات المطلوبة</span>
+<span class="cmd">pip install pandas openpyxl numpy</span>
+    </div>
+    <div class="alert alert-success">
+      <div class="alert-icon">✅</div>
+      <div class="alert-content">
+        <div class="alert-title">تحقق من نجاح التثبيت</div>
+        <div class="alert-text">بعد التثبيت شغّل: <code>python -c "import pandas, openpyxl, numpy; print('OK')"</code> — إذا ظهر OK فالتثبيت ناجح.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">🌐 متطلبات المتصفح (للمستخدم النهائي)</div>
+    <table class="data-table">
+      <tr><th>المتصفح</th><th>الإصدار الأدنى</th><th>التوصية</th></tr>
+      <tr><td>Google Chrome</td><td>90+</td><td>✅ موصى به</td></tr>
+      <tr><td>Microsoft Edge</td><td>90+</td><td>✅ موصى به</td></tr>
+      <tr><td>Mozilla Firefox</td><td>88+</td><td>✅ مدعوم</td></tr>
+      <tr><td>Internet Explorer</td><td>أي إصدار</td><td>❌ غير مدعوم</td></tr>
+    </table>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">4</div>
+    <div class="section-title">إجراءات النشر على السيرفر</div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">🪟 الطريقة أ: IIS على Windows Server</div>
+    <ol class="steps">
+      <li>
+        <div class="step-content">
+          <div class="step-title">فتح IIS Manager</div>
+          <div class="step-desc">ابحث عن "Internet Information Services (IIS) Manager" في قائمة ابدأ وافتحه بصلاحيات المسؤول.</div>
+        </div>
+      </li>
+      <li>
+        <div class="step-content">
+          <div class="step-title">إنشاء موقع أو مجلد افتراضي</div>
+          <div class="step-desc">انقر بزر الماوس الأيمن على "Sites" ← "Add Website"، أو أضف "Virtual Directory" تحت موقع موجود.</div>
+        </div>
+      </li>
+      <li>
+        <div class="step-content">
+          <div class="step-title">نسخ الملفات</div>
+          <div class="step-desc">انسخ الملفات الثلاثة إلى مجلد الموقع على السيرفر:</div>
+        </div>
+      </li>
+    </ol>
+    <div class="code-block">
+<span class="comment"># الملفات التي تُنسخ للسيرفر فقط</span>
+<span class="path">src/index.html</span>           <span class="comment">← الواجهة الرئيسية</span>
+<span class="path">src/data.json</span>            <span class="comment">← بيانات المحافظات</span>
+<span class="path">src/strategic_plans.json</span> <span class="comment">← الخطط الاستراتيجية</span>
+    </div>
+    <ol class="steps" start="4">
+      <li>
+        <div class="step-content">
+          <div class="step-title">تعيين الملف الافتراضي</div>
+          <div class="step-desc">في IIS، انقر على "Default Document" وتأكد من وجود index.html في القائمة. إذا لم يكن موجوداً أضفه.</div>
+        </div>
+      </li>
+      <li>
+        <div class="step-content">
+          <div class="step-title">التحقق من نوع MIME لـ JSON</div>
+          <div class="step-desc">في IIS ← MIME Types، تأكد من وجود: Extension: .json | MIME Type: application/json. إذا لم يكن موجوداً أضفه.</div>
+        </div>
+      </li>
+      <li>
+        <div class="step-content">
+          <div class="step-title">اختبار النشر</div>
+          <div class="step-desc">افتح المتصفح وانتقل إلى عنوان الموقع. يجب أن تظهر لوحة التخطيط التنموي.</div>
+        </div>
+      </li>
+    </ol>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">🐧 الطريقة ب: Apache/Nginx على Linux</div>
+    <div class="code-block">
+<span class="comment"># Apache — نسخ الملفات</span>
+<span class="cmd">sudo mkdir -p /var/www/html/JLDA</span>
+<span class="cmd">sudo cp src/index.html /var/www/html/JLDA/</span>
+<span class="cmd">sudo cp src/landing.html /var/www/html/JLDA/</span>
+<span class="cmd">sudo cp src/login.html /var/www/html/JLDA/</span>
+<span class="cmd">sudo cp src/chat.html /var/www/html/JLDA/</span>
+<span class="cmd">sudo cp src/upload.html /var/www/html/JLDA/</span>
+<span class="cmd">sudo cp src/audit.html /var/www/html/JLDA/</span>
+<span class="cmd">sudo cp src/data.json /var/www/html/JLDA/</span>
+<span class="cmd">sudo cp src/budget_data.json /var/www/html/JLDA/</span>
+<span class="cmd">sudo cp src/predictive_data.json /var/www/html/JLDA/</span>
+<span class="cmd">sudo cp src/strategic_comprehensive.json /var/www/html/JLDA/</span>
+
+<span class="comment"># تعيين الصلاحيات</span>
+<span class="cmd">sudo chown -R www-data:www-data /var/www/html/JLDA</span>
+<span class="cmd">sudo chmod -R 755 /var/www/html/JLDA</span>
+
+<span class="comment"># إعادة تشغيل Apache</span>
+<span class="cmd">sudo systemctl restart apache2</span>
+    </div>
+    <div class="alert alert-info">
+      <div class="alert-icon">ℹ️</div>
+      <div class="alert-content">
+        <div class="alert-title">الوصول للموقع</div>
+        <div class="alert-text">بعد النشر يمكن الوصول عبر: <strong>http://[عنوان-السيرفر]/JLDA/</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">📁 الطريقة ج: مجلد مشترك على الشبكة الداخلية</div>
+    <ol class="steps">
+      <li>
+        <div class="step-content">
+          <div class="step-title">إنشاء مجلد مشترك</div>
+          <div class="step-desc">أنشئ مجلداً على السيرفر وشاركه على الشبكة الداخلية بصلاحية القراءة لجميع الموظفين.</div>
+        </div>
+      </li>
+      <li>
+        <div class="step-content">
+          <div class="step-title">نسخ جميع الملفات</div>
+          <div class="step-desc">انسخ ملفات HTML و JSON من مجلد <code>src/</code> إلى المجلد المشترك.</div>
+        </div>
+      </li>
+      <li>
+        <div class="step-content">
+          <div class="step-title">توزيع الرابط</div>
+          <div class="step-desc">أرسل للموظفين مسار الملف مثل: \\server\JLDA\index.html أو رابط HTTP إذا كان مجلداً ويب.</div>
+        </div>
+      </li>
+    </ol>
+    <div class="alert alert-warn">
+      <div class="alert-icon">⚠️</div>
+      <div class="alert-content">
+        <div class="alert-title">ملاحظة مهمة للمجلد المشترك</div>
+        <div class="alert-text">بعض المتصفحات تمنع تحميل JSON من مسار ملف محلي. الحل: استخدم IIS أو Apache لخدمة الملفات عبر HTTP بدلاً من المسار المباشر.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">5</div>
+    <div class="section-title">إجراءات تحديث البيانات</div>
+  </div>
+
+  <div class="alert alert-info">
+    <div class="alert-icon">ℹ️</div>
+    <div class="alert-content">
+      <div class="alert-title">مبدأ التحديث</div>
+      <div class="alert-text">كل تحديث للبيانات يمر بثلاث خطوات فقط: <strong>1) تحديث Excel ← 2) تشغيل السكريبت ← 3) رفع الملفات للسيرفر</strong></div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">📝 الخطوة 1: تحديث ملفات Excel</div>
+    <p>افتح الملف المطلوب من مجلد <strong>Data/input/</strong> وحدّث البيانات. التزم بالقواعد التالية:</p>
+    <table class="data-table">
+      <tr><th>القاعدة</th><th>التفاصيل</th></tr>
+      <tr><td>أسماء المحافظات</td><td>يجب أن تطابق الأسماء المعتمدة بالضبط (انظر الجدول أدناه)</td></tr>
+      <tr><td>أسماء الأعمدة</td><td>لا تغيّر أسماء الأعمدة أبداً — النظام يعتمد عليها</td></tr>
+      <tr><td>الأرقام</td><td>أدخل الأرقام بدون فواصل أو رموز عملة</td></tr>
+      <tr><td>الخلايا الفارغة</td><td>اترك الخلية فارغة أو ضع 0 — لا تضع شرطة (-)</td></tr>
+      <tr><td>صيغة الملف</td><td>احفظ دائماً بصيغة .xlsx وليس .xls أو .csv</td></tr>
+    </table>
+
+    <div class="subsection-title" style="margin-top:20px">📋 أسماء المحافظات المعتمدة</div>
+    <table class="data-table">
+      <tr><th>الاسم المعتمد</th><th>أسماء مقبولة أيضاً</th></tr>
+      <tr><td>العاصمة</td><td>عمان، محافظة العاصمة</td></tr>
+      <tr><td>البلقاء</td><td>محافظة البلقاء</td></tr>
+      <tr><td>الزرقاء</td><td>محافظة الزرقاء</td></tr>
+      <tr><td>مأدبا</td><td>مادبا، محافظة مادبا</td></tr>
+      <tr><td>إربد</td><td>اربد، محافظة إربد</td></tr>
+      <tr><td>المفرق</td><td>محافظة المفرق</td></tr>
+      <tr><td>جرش</td><td>محافظة جرش</td></tr>
+      <tr><td>عجلون</td><td>محافظة عجلون</td></tr>
+      <tr><td>الكرك</td><td>محافظة الكرك</td></tr>
+      <tr><td>الطفيلة</td><td>محافظة الطفيلة</td></tr>
+      <tr><td>معان</td><td>محافظة معان</td></tr>
+      <tr><td>العقبة</td><td>محافظة العقبة</td></tr>
+    </table>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">⚙️ الخطوة 2: تشغيل سكريبت معالجة البيانات</div>
+    <p>افتح موجه الأوامر (CMD) في مجلد المشروع وشغّل:</p>
+    <div class="code-block">
+<span class="comment"># الانتقال لمجلد المشروع</span>
+<span class="cmd">cd C:\Users\[اسم المستخدم]\Desktop\JLD</span>
+
+<span class="comment"># الأمر الوحيد لبناء النظام كاملاً (10 خطوات تلقائية)</span>
+<span class="cmd">python src/run_all.py</span>
+
+<span class="comment"># أو يمكن تشغيل كل خطوة منفردة:</span>
+<span class="cmd">python src/generate_data.py</span>              <span class="comment"># 1: معالجة البيانات</span>
+<span class="cmd">python src/generate_comprehensive.py</span>     <span class="comment"># 2: الخطط الشاملة</span>
+<span class="cmd">python src/build_budget.py</span>               <span class="comment"># 3: بيانات الموازنة</span>
+<span class="cmd">python src/build_predictive2.py</span>          <span class="comment"># 4: البيانات التنبؤية</span>
+<span class="cmd">python src/write_dashboard.py</span>            <span class="comment"># 5: الهيكل الأساسي</span>
+<span class="cmd">python src/inject_budget.py</span>              <span class="comment"># 6: حقن الموازنة</span>
+<span class="cmd">python src/inject_predictive.py</span>          <span class="comment"># 7: حقن التنبؤي</span>
+<span class="cmd">python src/inject_alignment.py</span>           <span class="comment"># 8: حقن الموائمة</span>
+<span class="cmd">python src/build_landing.py</span>              <span class="comment"># 9: الصفحة الرئيسية</span>
+<span class="cmd">python src/build_guide.py</span>                <span class="comment"># 10: الدليل التقني</span>
+    </div>
+    <div class="alert alert-success">
+      <div class="alert-icon">✅</div>
+      <div class="alert-content">
+        <div class="alert-title">رسالة النجاح المتوقعة</div>
+        <div class="alert-text">
+          generate_data.py: <code>Done. Written to src\data.json — Governorates: 12</code><br>
+          run_all.py: <code>✅ اكتمل البناء بنجاح</code>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">📤 الخطوة 3: رفع الملفات المحدّثة للسيرفر</div>
+    <p>بعد نجاح الخطوة 2، انسخ هذه الملفات للسيرفر:</p>
+    <div class="code-block">
+<span class="path">src/index.html</span>           <span class="comment">← يُحدَّث دائماً</span>
+<span class="path">src/data.json</span>            <span class="comment">← يُحدَّث دائماً</span>
+<span class="path">src/strategic_plans.json</span> <span class="comment">← يُحدَّث عند تغيير الخطط فقط</span>
+    </div>
+    <div class="alert alert-warn">
+      <div class="alert-icon">⚠️</div>
+      <div class="alert-content">
+        <div class="alert-title">تحقق قبل الرفع</div>
+        <div class="alert-text">افتح src/index.html محلياً في المتصفح وتحقق من صحة البيانات قبل رفعها للسيرفر.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">🎯 تحديث الخطط الاستراتيجية والمشاريع</div>
+    <p>لتعديل رؤية محافظة أو مشاريعها، افتح الملف <strong>src/strategic_plans.json</strong> بأي محرر نصوص وعدّل القيم المطلوبة، ثم شغّل:</p>
+    <div class="code-block">
+<span class="cmd">python src/write_dashboard.py</span>
+<span class="comment"># يكفي هذا الأمر فقط دون الحاجة لإعادة معالجة البيانات</span>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">6</div>
+    <div class="section-title">جدول التحديثات الدورية الموصى به</div>
+  </div>
+
+  <div class="schedule">
+    <div class="sch-card">
+      <div class="sch-period">🔴 فوري — عند الحاجة</div>
+      <div class="sch-task">تصحيح أخطاء في البيانات أو تحديث طارئ لمؤشر معين</div>
+    </div>
+    <div class="sch-card">
+      <div class="sch-period">🟡 ربع سنوي</div>
+      <div class="sch-task">تحديث مؤشرات البطالة والسياحة والزراعة الموسمية</div>
+    </div>
+    <div class="sch-card">
+      <div class="sch-period">🟢 نصف سنوي</div>
+      <div class="sch-task">تحديث مؤشرات الصحة والتعليم والمياه والبنية التحتية</div>
+    </div>
+    <div class="sch-card">
+      <div class="sch-period">🔵 سنوي</div>
+      <div class="sch-task">مراجعة شاملة لجميع المؤشرات وتحديث الخطط الاستراتيجية والمشاريع</div>
+    </div>
+  </div>
+
+  <div class="subsection" style="margin-top:24px">
+    <div class="subsection-title">📅 جدول الملفات وتواريخ التحديث</div>
+    <table class="data-table">
+      <tr><th>الملف</th><th>دورية التحديث</th><th>الجهة المسؤولة</th></tr>
+      <tr><td>Unemployment.xlsx</td><td>ربع سنوي</td><td>دائرة الإحصاءات العامة</td></tr>
+      <tr><td>Tourism.xlsx</td><td>ربع سنوي</td><td>وزارة السياحة</td></tr>
+      <tr><td>Agriculture2024.xlsx</td><td>سنوي</td><td>وزارة الزراعة</td></tr>
+      <tr><td>health.xlsx</td><td>نصف سنوي</td><td>وزارة الصحة</td></tr>
+      <tr><td>education_data.xlsx</td><td>سنوي</td><td>وزارة التربية والتعليم</td></tr>
+      <tr><td>Water and Sanitation.xlsx</td><td>سنوي</td><td>وزارة المياه</td></tr>
+      <tr><td>Road_Infrastructure_Length.xlsx</td><td>سنوي</td><td>وزارة الأشغال العامة</td></tr>
+      <tr><td>Governorate_Local_Budgets.xlsx</td><td>سنوي (مع الموازنة)</td><td>وزارة المالية</td></tr>
+      <tr><td>Governorates_Master_Base.xlsx</td><td>سنوي</td><td>دائرة الإحصاءات العامة</td></tr>
+      <tr><td>Culture_2024.xlsx</td><td>سنوي</td><td>وزارة الثقافة</td></tr>
+      <tr><td>Associations.xlsx</td><td>سنوي</td><td>وزارة التنمية الاجتماعية</td></tr>
+    </table>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">7</div>
+    <div class="section-title">استكشاف الأخطاء وإصلاحها</div>
+  </div>
+
+  <table class="data-table">
+    <tr><th>المشكلة</th><th>السبب المحتمل</th><th>الحل</th></tr>
+    <tr>
+      <td>الصفحة تفتح لكن لا تظهر بيانات</td>
+      <td>ملف data.json غير موجود أو في مسار خاطئ</td>
+      <td>تأكد أن data.json في نفس مجلد index.html على السيرفر</td>
+    </tr>
+    <tr>
+      <td>الرسوم البيانية لا تظهر</td>
+      <td>لا يوجد اتصال بالإنترنت لتحميل Chart.js</td>
+      <td>حمّل Chart.js محلياً وضعه في نفس المجلد، ثم عدّل الرابط في index.html</td>
+    </tr>
+    <tr>
+      <td>خطأ عند تشغيل generate_data.py</td>
+      <td>اسم محافظة خاطئ في Excel أو عمود مفقود</td>
+      <td>راجع أسماء المحافظات والأعمدة في الملف المذكور في رسالة الخطأ</td>
+    </tr>
+    <tr>
+      <td>ModuleNotFoundError: pandas</td>
+      <td>المكتبات غير مثبتة</td>
+      <td>شغّل: pip install pandas openpyxl numpy</td>
+    </tr>
+    <tr>
+      <td>محافظة لا تظهر بياناتها</td>
+      <td>اسم المحافظة في Excel لا يطابق الأسماء المعتمدة</td>
+      <td>راجع جدول الأسماء المعتمدة في القسم 5</td>
+    </tr>
+    <tr>
+      <td>خطأ 403 Forbidden على IIS</td>
+      <td>صلاحيات المجلد غير صحيحة</td>
+      <td>تأكد أن مستخدم IIS_IUSRS لديه صلاحية القراءة على المجلد</td>
+    </tr>
+    <tr>
+      <td>ملف JSON لا يُحمَّل (CORS error)</td>
+      <td>فتح الملف مباشرة من المسار المحلي</td>
+      <td>استخدم خادم ويب (IIS/Apache) بدلاً من فتح الملف مباشرة</td>
+    </tr>
+    <tr>
+      <td>الأرقام تظهر صفراً لمحافظة معينة</td>
+      <td>خلايا فارغة أو تحتوي شرطة (-) في Excel</td>
+      <td>استبدل الشرطات بـ 0 في ملف Excel المعني</td>
+    </tr>
+  </table>
+
+  <div class="subsection" style="margin-top:24px">
+    <div class="subsection-title">🔍 كيفية قراءة رسائل الخطأ</div>
+    <div class="code-block">
+<span class="comment"># مثال على رسالة خطأ شائعة</span>
+KeyError: 'معدل البطالة 2025'
+
+<span class="comment"># يعني: العمود غير موجود في الملف</span>
+<span class="comment"># الحل: افتح Unemployment.xlsx وتأكد من اسم العمود بالضبط</span>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">8</div>
+    <div class="section-title">النسخ الاحتياطي والاسترداد</div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">💾 ما يجب نسخه احتياطياً</div>
+    <table class="data-table">
+      <tr><th>الملف/المجلد</th><th>الأهمية</th><th>دورية النسخ</th></tr>
+      <tr><td>Data/input/ (كل ملفات Excel)</td><td>🔴 حرج — مصدر البيانات الأصلي</td><td>بعد كل تحديث</td></tr>
+      <tr><td>src/strategic_plans.json</td><td>🔴 حرج — الخطط الاستراتيجية</td><td>بعد كل تعديل</td></tr>
+      <tr><td>src/generate_data.py</td><td>🟡 مهم — منطق المعالجة</td><td>شهرياً</td></tr>
+      <tr><td>src/write_dashboard.py</td><td>🟡 مهم — منطق الواجهة</td><td>شهرياً</td></tr>
+      <tr><td>src/data.json</td><td>🟢 عادي — يمكن إعادة توليده</td><td>بعد كل تحديث</td></tr>
+      <tr><td>src/index.html</td><td>🟢 عادي — يمكن إعادة توليده</td><td>بعد كل تحديث</td></tr>
+    </table>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">🔄 إجراء الاسترداد الكامل</div>
+    <p>في حال فقدان الملفات أو تلفها، اتبع هذه الخطوات:</p>
+    <ol class="steps">
+      <li>
+        <div class="step-content">
+          <div class="step-title">استرداد ملفات Excel من النسخة الاحتياطية</div>
+          <div class="step-desc">انسخ مجلد Data/input/ من النسخة الاحتياطية إلى مجلد المشروع.</div>
+        </div>
+      </li>
+      <li>
+        <div class="step-content">
+          <div class="step-title">استرداد ملفات Python</div>
+          <div class="step-desc">انسخ generate_data.py و write_dashboard.py من النسخة الاحتياطية إلى مجلد src/.</div>
+        </div>
+      </li>
+      <li>
+        <div class="step-content">
+          <div class="step-title">استرداد الخطط الاستراتيجية</div>
+          <div class="step-desc">انسخ strategic_plans.json من النسخة الاحتياطية إلى مجلد src/.</div>
+        </div>
+      </li>
+      <li>
+        <div class="step-content">
+          <div class="step-title">إعادة توليد الملفات</div>
+          <div class="step-desc">شغّل الأمرين: python src/generate_data.py ثم python src/write_dashboard.py</div>
+        </div>
+      </li>
+      <li>
+        <div class="step-content">
+          <div class="step-title">إعادة النشر على السيرفر</div>
+          <div class="step-desc">انسخ الملفات الثلاثة (index.html, data.json, strategic_plans.json) للسيرفر.</div>
+        </div>
+      </li>
+    </ol>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">9</div>
+    <div class="section-title">قائمة التحقق للفني المسؤول</div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">✅ قائمة تحقق النشر الأولي</div>
+    <ul class="checklist">
+      <li><div class="check-box"></div> تثبيت Python 3.9+ على جهاز العمل</li>
+      <li><div class="check-box"></div> تثبيت المكتبات: pip install pandas openpyxl numpy</li>
+      <li><div class="check-box"></div> التحقق من وجود جميع ملفات Excel في Data/input/</li>
+      <li><div class="check-box"></div> تشغيل python src/generate_data.py بنجاح (ظهور "Governorates: 12")</li>
+      <li><div class="check-box"></div> تشغيل python src/write_dashboard.py بنجاح</li>
+      <li><div class="check-box"></div> اختبار index.html محلياً في المتصفح</li>
+      <li><div class="check-box"></div> التحقق من ظهور بيانات جميع المحافظات الـ 12</li>
+      <li><div class="check-box"></div> التحقق من عمل الرسوم البيانية</li>
+      <li><div class="check-box"></div> التحقق من عمل زر الطباعة</li>
+      <li><div class="check-box"></div> نسخ الملفات الثلاثة للسيرفر</li>
+      <li><div class="check-box"></div> اختبار الموقع على السيرفر من متصفح مختلف</li>
+      <li><div class="check-box"></div> أخذ نسخة احتياطية من المشروع كاملاً</li>
+    </ul>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">✅ قائمة تحقق كل تحديث دوري</div>
+    <ul class="checklist">
+      <li><div class="check-box"></div> استلام ملفات Excel المحدّثة من الجهات المعنية</li>
+      <li><div class="check-box"></div> التحقق من صحة أسماء المحافظات في الملفات الجديدة</li>
+      <li><div class="check-box"></div> التحقق من عدم تغيير أسماء الأعمدة</li>
+      <li><div class="check-box"></div> نسخ الملفات الجديدة إلى Data/input/ (استبدال القديمة)</li>
+      <li><div class="check-box"></div> تشغيل python src/generate_data.py</li>
+      <li><div class="check-box"></div> تشغيل python src/write_dashboard.py</li>
+      <li><div class="check-box"></div> مراجعة النتائج محلياً</li>
+      <li><div class="check-box"></div> رفع الملفات المحدّثة للسيرفر</li>
+      <li><div class="check-box"></div> أخذ نسخة احتياطية من الملفات الجديدة</li>
+      <li><div class="check-box"></div> إشعار المستخدمين بالتحديث</li>
+    </ul>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">10</div>
+    <div class="section-title">معلومات التواصل والدعم</div>
+  </div>
+
+  <table class="data-table">
+    <tr><th>الدور</th><th>المسؤولية</th><th>ملاحظة</th></tr>
+    <tr><td>الفني المسؤول عن النظام</td><td>النشر، التحديث، الصيانة التقنية</td><td>يجب أن يكون لديه Python مثبتاً</td></tr>
+    <tr><td>مسؤول البيانات</td><td>تحديث ملفات Excel وضمان دقة البيانات</td><td>يحتاج Excel فقط</td></tr>
+    <tr><td>مسؤول السيرفر</td><td>إدارة IIS/Apache وصلاحيات الوصول</td><td>صلاحيات المسؤول على السيرفر</td></tr>
+    <tr><td>المستخدم النهائي</td><td>عرض التقارير وطباعتها</td><td>يحتاج متصفح حديث فقط</td></tr>
+  </table>
+
+  <div class="alert alert-info" style="margin-top:24px">
+    <div class="alert-icon">📌</div>
+    <div class="alert-content">
+      <div class="alert-title">ملف README</div>
+      <div class="alert-text">يُنصح بإنشاء ملف README.txt في مجلد المشروع يحتوي على اسم الفني المسؤول ورقم هاتفه وتاريخ آخر تحديث.</div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">11</div>
+    <div class="section-title">أمان البيانات والحماية السيبرانية</div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">🔒 إجراءات حماية الموقع أثناء النشر</div>
+    <div class="alert alert-warn">
+      <div class="alert-icon">⚠️</div>
+      <div class="alert-content">
+        <div class="alert-title">تنبيه أمني مهم</div>
+        <div class="alert-text">ملفات <code>Data/input/</code> تحتوي على بيانات حساسة (رواتب، بطالة، مؤشرات ديموغرافية). لا تُرفع هذه الملفات أبدًا إلى السيرفر العام — تبقى على جهاز العمل فقط.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">1. استخدام HTTPS</div>
+    <ol class="steps">
+      <li><div class="step-content"><div class="step-title">شهادة SSL/TLS</div><div class="step-desc">وفّر شهادة SSL من Let's Encrypt (مجانية) أو من جهة شهارات موثوقة. على IIS: استخدم ميزة "Server Certificates" و"Bindings" لربط الشهادة بالموقع.</div></div></li>
+      <li><div class="step-content"><div class="step-title">إعادة التوجيه الإجباري</div><div class="step-desc">اضبط قاعدة إعادة توجيه HTTP → HTTPS في ملف <code>web.config</code> (IIS) أو إعدادات الخادم (Apache/Nginx).</div></div></li>
+    </ol>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">2. التحكم بالوصول</div>
+    <ol class="steps">
+      <li><div class="step-content"><div class="step-title">المصادقة الأساسية (Basic Auth)</div><div class="step-desc">على IIS: فعّل "Basic Authentication" أو استخدم <code>web.config</code> لتحديد مستخدمين مسموحين:<br><code>&lt;authorization&gt;&lt;allow users="admin"/&gt;&lt;deny users="*"/&gt;&lt;/authorization&gt;</code></div></div></li>
+      <li><div class="step-content"><div class="step-title">تقييد الوصول بالـ IP</div><div class="step-desc">اضبط جدار الحماية ليُسمح بالوصول فقط من عناوين IP موثوقة (شبكة الوزارة / VPN).</div></div></li>
+      <li><div class="step-content"><div class="step-title">صلاحيات الملفات</div><div class="step-desc">على السيرفر: منح صلاحية القراءة فقط لحساب الخدمة (IIS_IUSRS / www-data). منع الكتابة إلا لمجلدات السجلات.</div></div></li>
+    </ol>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">3. حماية الملفات الحساسة</div>
+    <table class="data-table">
+      <tr><th>الملف</th><th>مستوى الحساسية</th><th>إجراء الحماية</th></tr>
+      <tr><td>data.json</td><td>متوسط — يحتوي مؤشرات أداء</td><td>لا يحتاج تشفير خاص (بيانات عامة)</td></tr>
+      <tr><td>budget_data.json</td><td>مرتفع — بيانات مالية</td><td>تشفير AES-256 أو حماية بصلاحيات NTFS</td></tr>
+      <tr><td>strategic_plans.json</td><td>مرتفع — خطط استراتيجية</td><td>تشفير أو تقييد الوصول عبر IP</td></tr>
+      <tr><td>predictive_data.json</td><td>متوسط — تنبؤات</td><td>لا يحتاج تشفير خاص</td></tr>
+      <tr><td><strong>Data/input/*.xlsx</strong></td><td><strong>حرج — بيانات مصدر خام</strong></td><td><strong>لا يُرفع أبدًا للسيرفر — يبقى على جهاز العمل</strong></td></tr>
+    </table>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">4. النسخ الاحتياطي الآمن</div>
+    <ul class="checklist">
+      <li><div class="check-box"></div> تخزين النسخ الاحتياطية في موقع جغرافي منفصل</li>
+      <li><div class="check-box"></div> تشفير النسخ الاحتياطية باستخدام 7-Zip أو GPG (AES-256)</li>
+      <li><div class="check-box"></div> جدولة نسخ احتياطية أسبوعية على الأقل</li>
+      <li><div class="check-box"></div> اختبار استرداد النسخ الاحتياطية شهرياً</li>
+      <li><div class="check-box"></div> الاحتفاظ بـ 3 نسخ احتياطية على الأقل (قاعدة 3-2-1)</li>
+    </ul>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">5. إعدادات جدار الحماية (Firewall)</div>
+    <div class="code-block">
+<span class="comment"># تفعيل HTTPS فقط (منع HTTP)</span>
+<span class="cmd"># IIS: إضافة قاعدة في Windows Firewall</span>
+netsh advfirewall firewall add rule name="HTTPS Only" dir=in action=allow protocol=TCP localport=443
+netsh advfirewall firewall add rule name="Block HTTP" dir=in action=block protocol=TCP localport=80
+
+<span class="comment"># Linux: iptables</span>
+<span class="cmd">sudo iptables -A INPUT -p tcp --dport 443 -j ACCEPT</span>
+<span class="cmd">sudo iptables -A INPUT -p tcp --dport 80 -j DROP</span>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">6. تسجيل الأنشطة (Audit Logging)</div>
+    <div class="alert alert-info">
+      <div class="alert-icon">ℹ️</div>
+      <div class="alert-content">
+        <div class="alert-title">تفعيل سجلات الوصول</div>
+        <div class="alert-text">فعّل IIS Logging أو Apache Access Log لتسجيل كل طلبات الوصول للموقع. احتفظ بالسجلات لمدة 90 يوماً على الأقل.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <div class="section-num">12</div>
+    <div class="section-title">دليل النشر السريع (ملخص)</div>
+  </div>
+
+  <div class="alert alert-success">
+    <div class="alert-icon">✅</div>
+    <div class="alert-content">
+      <div class="alert-title">اختصار خطوات النشر الكامل</div>
+      <div class="alert-text">هذا الملخص يغطي جميع الخطوات اللازمة لنشر الموقع لأول مرة أو تحديثه.</div>
+    </div>
+  </div>
+
+  <ol class="steps">
+    <li>
+      <div class="step-content">
+        <div class="step-title">التهيئة الأولية (مرة واحدة فقط)</div>
+        <div class="step-desc">
+          <strong>على جهاز العمل:</strong> تثبيت Python 3.9+ والمكتبات المطلوبة:<br>
+          <code>pip install pandas openpyxl numpy</code><br><br>
+          <strong>على السيرفر:</strong> تثبيت IIS/Apache/Nginx، تفعيل دعم JSON MIME type، وتثبيت شهادة SSL.
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="step-content">
+        <div class="step-title">بناء النظام</div>
+        <div class="step-desc">
+          شغّل الأمر الموحد من مجلد المشروع:<br>
+          <code>python src/run_all.py</code><br><br>
+          أو الأوامر الفردية:<br>
+          <code>python src/generate_data.py</code> → معالجة البيانات<br>
+          <code>python src/build_budget.py</code> → حساب الموازنة<br>
+          <code>python src/build_predictive2.py</code> → التحليل التنبؤي<br>
+          <code>python src/write_dashboard.py</code> → بناء الهيكل<br>
+          <code>python src/inject_budget.py</code> → حقن تبويب الموازنة<br>
+          <code>python src/inject_solutions.py</code> → حقن تبويب الحلول<br>
+          <code>python src/inject_predictive.py</code> → حقن تبويب التنبؤي<br>
+          <code>python src/inject_ai.py</code> → حقن تبويب التقرير<br>
+          <code>python src/build_landing.py</code> → صفحة الهبوط<br>
+          <code>python src/build_guide.py</code> → بناء الدليل
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="step-content">
+        <div class="step-title">التحقق المحلي</div>
+        <div class="step-desc">افتح <code>src/index.html</code> في متصفح Chrome/Edge وتحقق من: ظهور جميع المحافظات الـ12، عمل الرسوم البيانية، ظهور تبويب "مشاريع مقترحة" بالبطاقات.</div>
+      </div>
+    </li>
+    <li>
+      <div class="step-content">
+        <div class="step-title">رفع الملفات للسيرفر</div>
+        <div class="step-desc">
+          انسخ الملفات التالية إلى مجلد السيرفر:<br>
+          <strong>src/index.html</strong> (الملف الرئيسي ~2.4 MB)<br>
+          <strong>src/data.json</strong> (بيانات المحافظات)<br>
+          <strong>src/strategic_plans.json</strong> (الخطط والمشاريع)<br>
+          <strong>src/budget_data.json</strong> (بيانات الموازنة)<br>
+          <strong>src/predictive_data.json</strong> (البيانات التنبؤية)<br>
+          <strong>src/landing.html</strong> (صفحة الهبوط)<br><br>
+          <em>ملاحظة: لا تنقل مجلد Data/input/ إلى السيرفر — يبقى على جهاز العمل فقط.</em>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="step-content">
+        <div class="step-title">إعدادات السيرفر</div>
+        <div class="step-desc">
+          تعيين index.html كملف افتراضي، التحقق من دعم MIME لنوع .json، تفعيل HTTPS، تقييد الوصول بالـ IP عند الحاجة.
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="step-content">
+        <div class="step-title">الاختبار النهائي</div>
+        <div class="step-desc">افتح الموقع من متصفح مختلف عن بُعد (أو من جهاز آخر)، تحقق من الطباعة (Ctrl+P)، وتأكد من عرض جميع التبويبات.</div>
+      </div>
+    </li>
+  </ol>
+
+  <div class="alert alert-warn">
+    <div class="alert-icon">⚠️</div>
+    <div class="alert-content">
+      <div class="alert-title">تنبيهات مهمة</div>
+      <div class="alert-text">
+        • ملف index.html الناتج كبير (~2.4 MB) بسبب البيانات المدمجة — لا يؤثر على الأداء لأنه ملف ثابت.<br>
+        • عند التحديث: كرّر الخطوة 1 فقط (run_all.py) ثم انسخ الـ 5 ملفات للسيرفر مرة أخرى.<br>
+        • خادم Node.js (serve.js) مخصص للتطوير فقط — للاستخدام الإنتاجي استخدم IIS/Apache/Nginx.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="doc-footer">
+  <strong>الدليل الإجرائي التقني — نظام لوحة التخطيط التنموي الاستراتيجي</strong><br>
+  المملكة الأردنية الهاشمية — وزارة التخطيط والتعاون الدولي<br>
+  الإصدار 1.1 | مايو 2026 | للاستخدام الداخلية فقط
+</div>
+</div>
+</body>
+</html>
